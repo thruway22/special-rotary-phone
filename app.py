@@ -28,14 +28,13 @@ if submitted:
         for row in ws_range:
             s = ''
             for cell in row:
-                st.write(cell.value)
-        #         if cell.value is None:
-        #             s += ' ' * 11
-        #         else:
-        #             s += str(cell.value).rjust(10) + ' '
-        #     pw.writeLine(s)
-        # pw.savePage()
-        # pw.close()
+                if cell.value is None:
+                    s = s
+                else:
+                    s += str(cell.value) #.rjust(10) + ' '
+            pw.writeLine(s)
+        pw.savePage()
+        pw.close()
         st.download_button('Download some text', pw)
         
         st.write('test')
