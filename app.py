@@ -19,5 +19,7 @@ if submitted:
     with st.spinner('Working on your timesheet...'):
         wb = load_workbook(filename=r'template.xlsx', read_only=False)
         ws = wb['timesheet']
+        ws['Q2']= "Saleh"
+        wb.save("sample.xlsx")
         st.write('test')
 
