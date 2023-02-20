@@ -9,7 +9,7 @@ employee_rate = form.number_input('Day Rate (SAR)')
 date_in = form.date_input('Date In')
 date_out = form.date_input('Date Out')
 wstl_name = form.selectbox('Wellsite Team Leader', ['KL', 'PO', 'SB', 'AM'])
-form.expander('Other settings')
+expander = form.expander('Other settings')
 expander.write('ikhy')
 
 submitted = form.form_submit_button('Generate PDF File')
