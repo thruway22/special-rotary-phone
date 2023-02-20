@@ -24,7 +24,7 @@ if submitted:
         ws['Q2']= "Saleh"
         ouput_excel = wb.save("sample.xlsx")
         pw = PdfWriter('timesheet.pdf')
-        ws_range = ws.iter_rows('A1:T35')
+        ws_range = ws.iter_rows()
         for row in ws_range:
             s = ''
             for cell in row:
