@@ -17,5 +17,7 @@ submitted = form.form_submit_button('Generate PDF File')
 
 if submitted:
     with st.spinner('Working on your timesheet...'):
+        wb = load_workbook(filename=r'template.xlsx', read_only=False)
+        ws = book['timesheet']
         st.write('test')
 
