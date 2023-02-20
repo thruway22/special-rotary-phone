@@ -6,6 +6,6 @@ form = st.form('input_form')
 form.text_input('Name')
 form.number_input('ID')
 form.number_input('Day Rate (SAR)')
-form.text_input('Wellsite Team Leader Name')
+form.selectbox('Wellsite Team Leader', ['KL', 'PO', 'SB', 'AM'])
 
 submitted = form.form_submit_button('Generate PDF File')
