@@ -22,7 +22,7 @@ if submitted:
         ws = wb['timesheet']
         ws['Q2']= "Saleh"
         ouput_excel = wb.save("sample.xlsx")
-        output_pdf = ouput_excel
+        output_pdf = Workbook(ouput_excel)
         pdf = ouput_excel.save("timesheet.pdf", SaveFormat.PDF)
         btn = st.download_button(
             label="Download image",
