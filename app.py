@@ -26,14 +26,14 @@ if submitted:
         pw = PdfWriter('timesheet.pdf')
         ws_range = ws.iter_rows()
         for row in ws_range:
-            st.write(row)
-            # s = ''
-            # for cell in row:
-            #     if cell.value is None:
-            #         s += ' ' * 11
-            #     else:
-            #         s += str(cell.value).rjust(10) + ' '
-            # pw.writeLine(s)
+            s = ''
+            for cell in row:
+                st.write(cell.value)
+        #         if cell.value is None:
+        #             s += ' ' * 11
+        #         else:
+        #             s += str(cell.value).rjust(10) + ' '
+        #     pw.writeLine(s)
         # pw.savePage()
         # pw.close()
         st.download_button('Download some text', pw)
