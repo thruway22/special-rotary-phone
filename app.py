@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from openpyxl import load_workbook
+import asposecells as ac
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
@@ -20,6 +21,14 @@ if submitted:
         wb = load_workbook(filename=r'template.xlsx', read_only=False)
         ws = wb['timesheet']
         ws['Q2']= "Saleh"
-        wb.save("sample.xlsx")
+        ouput_excel = wb.save("sample.xlsx")
+        output_pdf = ouput_excel
+        pdf = ouput_excel.save("timesheet.pdf", SaveFormat.PDF)
+        btn = st.download_button(
+            label="Download image",
+            data=pdf,
+            file_name="flower.png",
+            #mime="image/png",
+        )
         st.write('test')
 
