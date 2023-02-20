@@ -23,6 +23,19 @@ if submitted:
         ws = wb['timesheet']
         ws['Q2']= "Saleh"
         ouput_excel = wb.save("sample.xlsx")
+        pw = PdfWriter('timesheet.pdf')
+        ws_range = sw.iter_rows('A1:T35')
+        for row in ws_range:
+            s = ''
+            for cell in row:
+                if cell.value is None:
+                    s += ' ' * 11
+                else:
+                    s += str(cell.value).rjust(10) + ' '
+            pw.writeLine(s)
+        pw.savePage()
+        pw.close()
+        st.download_button('Download some text', pw)
         
         st.write('test')
 
