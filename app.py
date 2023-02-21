@@ -37,26 +37,26 @@ if submitted:
 
 
 
-        pdf_out = BytesIO()
-        y = PdfWriter()
-        #y.addpage()
-        y.write(pdf_out)
-        # ws_range = ws.iter_rows()
-        # for row in ws_range:
-        #     s = ''
-        #     for cell in row:
-        #         if cell.value is None:
-        #             s = s
-        #         else:
-        #             s += str(cell.value) #.rjust(10) + ' '
-        #     pw.writeLine(s)
-        # pw.savePage()
-        # pw.close()
+        # pdf_out = BytesIO()
+        # y = PdfWriter()
+        # #y.addpage()
+        # y.write(pdf_out)
+        # # ws_range = ws.iter_rows()
+        # # for row in ws_range:
+        # #     s = ''
+        # #     for cell in row:
+        # #         if cell.value is None:
+        # #             s = s
+        # #         else:
+        # #             s += str(cell.value) #.rjust(10) + ' '
+        # #     pw.writeLine(s)
+        # # pw.savePage()
+        # # pw.close()
 
-        st.download_button(label="Export_Report",
-                    data=pdf_out.getvalue(),
-                    file_name="test.pdf",
-                    mime='application/octet-stream')
+        # st.download_button(label="Export_Report",
+        #             data=pdf_out.getvalue(),
+        #             file_name="test.pdf",
+        #             mime='application/octet-stream')
 
         st.write('test')
 
