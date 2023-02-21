@@ -56,7 +56,7 @@ if submitted:
             label="Download Html Page",
             data=pdf_out,
             file_name="report.html",
-            mime="application/octet-stream"
+            mime="application/octet-stream")
 
         # pdf_out = BytesIO()
         # y = PdfWriter()
