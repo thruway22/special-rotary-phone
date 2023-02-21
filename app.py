@@ -45,17 +45,6 @@ if submitted:
             file_name="workbook",
             mime="application/vnd.ms-excel"
         )
-        
-
-        wb2 = pd.read_excel(output.getvalue()) # This reads in your excel doc as a pandas DataFrame
-        html = wb2.to_html
-
-        st.download_button(
-            label="Download Excel workbook",
-            data=html,
-            file_name="workbook",
-            mime="application/vnd.ms-excel"
-        )
 
         st.write('test')
 
