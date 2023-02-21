@@ -39,7 +39,7 @@ if submitted:
 
 
         pw = PdfWriter()
-        y.addpage(x.pages[0])
+        y.addpage()
         y.write('result.pdf')
         # ws_range = ws.iter_rows()
         # for row in ws_range:
