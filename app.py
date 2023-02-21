@@ -24,6 +24,7 @@ if submitted:
         wb = load_workbook(filename=r'template.xlsx', read_only=False)
         ws = wb['timesheet']
         ws['Q2']= "Saleh"
+        ws['A2']=10
         wb.save(output)
         # pw = PdfWriter('timesheet.pdf')
         # ws_range = ws.iter_rows()
