@@ -36,11 +36,11 @@ if submitted:
         )
 
         output_html = BytesIO()
-        html = xlsx2html(output.getvalue(), output_html)
+        html = xlsx2html(output, b'output.html')
 
         st.download_button(
             label="Download Excel workbook",
-            data=output_html.getvalue(),
+            data=html,
             file_name="report.html",
             mime="application/octet-stream"
         )
