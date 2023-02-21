@@ -3,6 +3,7 @@ import pandas as pd
 from openpyxl import load_workbook
 # from asposecells.api import Workbook
 from pdfrw import PdfWriter
+from io import BytesIO
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
@@ -19,10 +20,11 @@ submitted = form.form_submit_button('Generate PDF File')
 
 if submitted:
     with st.spinner('Working on your timesheet...'):
+        output = BytesIO()
         wb = load_workbook(filename=r'template.xlsx', read_only=False)
         ws = wb['timesheet']
         ws['Q2']= "Saleh"
-        ouput_excel = wb.save("sample.xlsx")
+        ouput_excel = wb.save(output)
         # pw = PdfWriter('timesheet.pdf')
         # ws_range = ws.iter_rows()
         # for row in ws_range:
