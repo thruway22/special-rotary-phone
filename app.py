@@ -26,25 +26,37 @@ if submitted:
         ws['Q2']= "Saleh"
         ws['A2']=10
         wb.save(output)
-        pw = PdfWriter('timesheet.pdf')
-        ws_range = ws.iter_rows()
-        for row in ws_range:
-            s = ''
-            for cell in row:
-                if cell.value is None:
-                    s = s
-                else:
-                    s += str(cell.value) #.rjust(10) + ' '
-            pw.writeLine(s)
-        pw.savePage()
-        pw.close()
-        #st.download_button('Download some text', ouput_excel)
+
         st.download_button(
             label="Download Excel workbook",
             data=output.getvalue(),
             file_name="workbook",
             mime="application/vnd.ms-excel"
         )
+
+
+
+
+
+        pw = PdfWriter()
+        y.addpage(x.pages[0])
+        y.write('result.pdf')
+        # ws_range = ws.iter_rows()
+        # for row in ws_range:
+        #     s = ''
+        #     for cell in row:
+        #         if cell.value is None:
+        #             s = s
+        #         else:
+        #             s += str(cell.value) #.rjust(10) + ' '
+        #     pw.writeLine(s)
+        # pw.savePage()
+        # pw.close()
+
+        st.download_button(label="Export_Report",
+                    data=y,
+                    file_name="test.pdf",
+                    mime='application/octet-stream')
 
         st.write('test')
 
