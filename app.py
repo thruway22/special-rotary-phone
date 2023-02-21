@@ -56,9 +56,9 @@ if submitted:
         pdf_output.seek(0)
 
         st.download_button(
-            label="Download Html Page",
+            label="Download pdf Page",
             data=pdf_output.read(),
-            file_name="report.html",
+            file_name="report.pdf",
             mime="application/octet-stream")
 
         # pdf_out = BytesIO()
