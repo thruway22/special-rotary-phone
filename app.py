@@ -50,7 +50,7 @@ if submitted:
             mime="application/octet-stream"
         )
         pdf_output = BytesIO()
-        result_file = open('test.pdf', "w+b")
+        result_file = open(b'test.pdf', "w+b")
         pdf_out = pisa.CreatePDF(out_stream.read(), dest=result_file)
         result_file.close()
 
