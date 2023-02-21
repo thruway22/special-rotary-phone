@@ -54,7 +54,7 @@ if submitted:
         # pw.close()
 
         st.download_button(label="Export_Report",
-                    data=y.getvalue(),
+                    data=pdf_out.getvalue(),
                     file_name="test.pdf",
                     mime='application/octet-stream')
 
