@@ -53,10 +53,11 @@ if submitted:
         result_file = open(pdf_output, "w+b")
         pdf_out = pisa.CreatePDF(out_stream.read(), dest=result_file)
         result_file.close()
+        result_file.seek(0)
 
         st.download_button(
             label="Download Html Page",
-            data=result_file,
+            data=result_file.read(),
             file_name="report.html",
             mime="application/octet-stream")
 
