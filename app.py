@@ -24,7 +24,7 @@ if submitted:
         wb = load_workbook(filename=r'template.xlsx', read_only=False)
         ws = wb['timesheet']
         ws['Q2']= "Saleh"
-        ouput_excel = wb.save(output)
+        wb.save(output)
         # pw = PdfWriter('timesheet.pdf')
         # ws_range = ws.iter_rows()
         # for row in ws_range:
@@ -37,7 +37,7 @@ if submitted:
         #     pw.writeLine(s)
         # pw.savePage()
         # pw.close()
-        st.download_button('Download some text', ouput_excel)
+        #st.download_button('Download some text', ouput_excel)
         st.download_button(
             label="Download Excel workbook",
             data=output.getvalue(),
