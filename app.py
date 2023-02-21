@@ -4,6 +4,7 @@ from openpyxl import load_workbook
 # from asposecells.api import Workbook
 from pdfrw import PdfWriter
 from io import BytesIO
+from xlsx2html import xlsx2html
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
