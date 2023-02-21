@@ -49,7 +49,7 @@ if submitted:
             file_name="report.html",
             mime="application/octet-stream"
         )
-        pdf_output = BytesIO('report.pdf')
+        pdf_output = BytesIO()
         result_file = open(pdf_output, "w+b")
         pdf_out = pisa.CreatePDF(out_stream.read(), dest=result_file)
         result_file.close()
