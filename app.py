@@ -5,7 +5,6 @@ from openpyxl import load_workbook
 from pdfrw import PdfWriter
 from io import BytesIO
 from xlsx2html import xlsx2html
-import excel2img
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
