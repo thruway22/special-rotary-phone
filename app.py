@@ -37,10 +37,10 @@ if submitted:
 
 
 
-
+        pdf_out = BytesIO()
         y = PdfWriter()
         #y.addpage()
-        y.write('result.pdf')
+        y.write(pdf_out)
         # ws_range = ws.iter_rows()
         # for row in ws_range:
         #     s = ''
