@@ -5,6 +5,7 @@ from openpyxl import load_workbook
 from pdfrw import PdfWriter
 from io import BytesIO
 from xlsx2html import xlsx2html
+from xhtml2pdf import pisa
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
@@ -48,7 +49,14 @@ if submitted:
             file_name="report.html",
             mime="application/octet-stream"
         )
+        pdf_output = BytesIO()
+        pdf_out = pisa.CreatePDF(out_stream.read(), dest=pdf_output)
 
+        st.download_button(
+            label="Download Html Page",
+            data=pdf_out,
+            file_name="report.html",
+            mime="application/octet-stream"
 
         # pdf_out = BytesIO()
         # y = PdfWriter()
