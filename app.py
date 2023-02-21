@@ -49,12 +49,14 @@ if submitted:
             file_name="report.html",
             mime="application/octet-stream"
         )
-        pdf_output = BytesIO()
+        pdf_output = BytesIO('report.pdf')
+        result_file = open(pdf_output, "w+b")
         pdf_out = pisa.CreatePDF(out_stream.read(), dest=pdf_output)
+        result_file.close()
 
         st.download_button(
             label="Download Html Page",
-            data=pdf_out,
+            data=result_file,
             file_name="report.html",
             mime="application/octet-stream")
 
