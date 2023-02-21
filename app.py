@@ -35,7 +35,15 @@ if submitted:
             mime="application/vnd.ms-excel"
         )
 
+        output_html = BytesIO()
+        html = xlsx2html(output, output_html)
 
+        st.download_button(
+            label="Download Excel workbook",
+            data=output_html.getvalue(),
+            file_name="workbook",
+            mime="application/vnd.ms-excel"
+        )
 
 
         # pdf_out = BytesIO()
