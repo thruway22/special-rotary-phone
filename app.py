@@ -41,7 +41,7 @@ if submitted:
         st.download_button(
             label="Download Excel workbook",
             data=output.getvalue(),
-            file_name="workbook.xlsx",
+            file_name="workbook",
             mime="application/vnd.ms-excel"
         )
         
