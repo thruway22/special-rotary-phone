@@ -53,11 +53,11 @@ if submitted:
         #result_file = open(pdf_output, "w+b")
         pisa_stat = pisa.CreatePDF(out_stream.read(), dest=pdf_output)
         #pdf_output.close()
-        pdf_output.seek(0)
+        #pdf_output.seek(0)
 
         st.download_button(
             label="Download pdf Page",
-            data=pdf_output.read(),
+            data=pdf_output.getvalue(),
             file_name="report.pdf",
             mime="application/octet-stream")
 
