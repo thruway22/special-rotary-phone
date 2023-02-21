@@ -38,6 +38,12 @@ if submitted:
         # pw.savePage()
         # pw.close()
         st.download_button('Download some text', ouput_excel)
+        st.download_button(
+            label="Download Excel workbook",
+            data=output.getvalue(),
+            file_name="workbook.xlsx",
+            mime="application/vnd.ms-excel"
+        )
         
         st.write('test')
 
