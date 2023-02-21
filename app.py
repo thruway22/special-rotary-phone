@@ -5,6 +5,7 @@ from openpyxl import load_workbook
 from pdfrw import PdfWriter
 from io import BytesIO
 from xlsx2html import xlsx2html
+import excel2img
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
@@ -35,15 +36,15 @@ if submitted:
             mime="application/vnd.ms-excel"
         )
 
-        output_html = BytesIO()
-        html = xlsx2html(output, 'output_html.html')
+        # output_html = BytesIO()
+        # html = xlsx2html(output, 'output_html.html')
 
-        st.download_button(
-            label="Download Excel workbook",
-            data=html,
-            file_name="workbook",
-            mime="application/vnd.ms-excel"
-        )
+        # st.download_button(
+        #     label="Download Excel workbook",
+        #     data=html,
+        #     file_name="workbook",
+        #     mime="application/vnd.ms-excel"
+        # )
 
 
         # pdf_out = BytesIO()
