@@ -38,7 +38,7 @@ if submitted:
             pw.writeLine(s)
         pw.savePage()
         pw.close()
-        st.download_button('Download some text', ouput_excel)
+        #st.download_button('Download some text', ouput_excel)
         st.download_button(
             label="Download Excel workbook",
             data=output.getvalue(),
