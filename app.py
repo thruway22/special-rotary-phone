@@ -43,7 +43,7 @@ if submitted:
         
 
         st.download_button(
-            label="Download Excel workbook",
+            label="Download Html Page",
             data=out_stream.read(),
             file_name="report.html",
             mime="application/octet-stream"
