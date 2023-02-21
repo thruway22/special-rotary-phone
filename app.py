@@ -40,7 +40,7 @@ if submitted:
 
         st.download_button(
             label="Download Excel workbook",
-            data=output_html.getvalue(),
+            data=html,
             file_name="workbook",
             mime="application/vnd.ms-excel"
         )
