@@ -51,7 +51,7 @@ if submitted:
         )
         pdf_output = BytesIO('report.pdf')
         result_file = open(pdf_output, "w+b")
-        pdf_out = pisa.CreatePDF(out_stream.read(), dest=pdf_output)
+        pdf_out = pisa.CreatePDF(out_stream.read(), dest=result_file)
         result_file.close()
 
         st.download_button(
