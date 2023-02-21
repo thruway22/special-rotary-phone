@@ -35,12 +35,16 @@ if submitted:
             mime="application/vnd.ms-excel"
         )
 
-        output_html = BytesIO()
-        html = xlsx2html(output, b'output.html')
+        # output_html = BytesIO()
+        # html = xlsx2html(output, b'output.html')
+        
+        out_stream = xlsx2html(output)
+        out_stream.seek(0)
+        
 
         st.download_button(
             label="Download Excel workbook",
-            data=html,
+            data=out_stream.read(),
             file_name="report.html",
             mime="application/octet-stream"
         )
