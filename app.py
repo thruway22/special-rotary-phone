@@ -39,7 +39,6 @@ if submitted:
             cell = 'A' + str(day + 1)
             ws[cell] = day
 
-        
         ws['Q2']= employee_name
         ws['Q3']= employee_id
         ws['Q5']= str(calendar.month_abbr[date_in.month].upper()) + ' ' + str(date_in.year)
