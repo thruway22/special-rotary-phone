@@ -30,7 +30,7 @@ if submitted:
         ws = wb['timesheet']
         ws['Q2']= employee_name
         ws['Q3']= employee_id
-        ws['Q5']= 
+        ws['Q5']= None
         ws['A2']=10
         wb.save(output)
 
