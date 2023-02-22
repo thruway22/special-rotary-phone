@@ -29,19 +29,20 @@ months_dict = {
 
 if submitted:
     with st.spinner('Working on your timesheet...'):
-
-        st.write(date_in, date_out)
-        #date_in_stripped = datetime.datetime.strptime(date_in, "%Y-%m-%d")
-        st.write(date_in.month, str(calendar.month_abbr[date_in.month].upper()) + ' ' + str(date_in.year))
-
-
         output = BytesIO()
         wb = load_workbook(filename=r'template.xlsx', read_only=False)
         ws = wb['timesheet']
+
+        month_start = 1
+        month_end = calendar.monthrange(date_in.year, date_in.month)[1] + 1
+        for day in range(month_start, month_end):
+            cell = 'A' + str(day + 1)
+            ws[cell] = day
+
+        
         ws['Q2']= employee_name
         ws['Q3']= employee_id
-        ws['Q5']= calendar.month_abbr[date_in.month]
-        ws['A2']=10
+        ws['Q5']= str(calendar.month_abbr[date_in.month].upper()) + ' ' + str(date_in.year)
         wb.save(output)
 
         st.download_button(
@@ -53,28 +54,29 @@ if submitted:
 
         # output_html = BytesIO()
         # html = xlsx2html(output, b'output.html')
-        
-        out_stream = xlsx2html(output)
-        out_stream.seek(0)
+        #####################################
+        # out_stream = xlsx2html(output)
+        # out_stream.seek(0)
         
 
-        st.download_button(
-            label="Download Html Page",
-            data=out_stream.read(),
-            file_name="report.html",
-            mime="application/octet-stream"
-        )
-        pdf_output = BytesIO()
-        #result_file = open(pdf_output, "w+b")
-        pisa_stat = pisa.CreatePDF(out_stream.getvalue(), dest=pdf_output)
-        #pdf_output.close()
-        #pdf_output.seek(0)
+        # st.download_button(
+        #     label="Download Html Page",
+        #     data=out_stream.read(),
+        #     file_name="report.html",
+        #     mime="application/octet-stream"
+        # )
+        # ####################################
+        # pdf_output = BytesIO()
+        # #result_file = open(pdf_output, "w+b")
+        # pisa_stat = pisa.CreatePDF(out_stream.getvalue(), dest=pdf_output)
+        # #pdf_output.close()
+        # #pdf_output.seek(0)
 
-        st.download_button(
-            label="Download pdf Page",
-            data=pdf_output.getvalue(),
-            file_name="report.pdf",
-            mime="application/octet-stream")
+        # st.download_button(
+        #     label="Download pdf Page",
+        #     data=pdf_output.getvalue(),
+        #     file_name="report.pdf",
+        #     mime="application/octet-stream")
 
         # pdf_out = BytesIO()
         # y = PdfWriter()
