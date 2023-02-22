@@ -48,9 +48,7 @@ if submitted:
             ws[cell_b] = 'ARAMCO'
             ws[cell_d] = rig_name
 
-         
-        st.write(hitch_days)
-        
+                
         ws['Q2']= employee_name
         ws['Q3']= employee_id
         ws['Q5']= str(calendar.month_abbr[date_in.month].upper()) + ' ' + str(date_in.year) # month year
@@ -60,7 +58,7 @@ if submitted:
         ws['Q8']= employee_rate
         ws['T8']= hitch * employee_rate
         ws['T19']= hitch * employee_rate
-        
+
         wb.save(output)
 
         st.download_button(
