@@ -51,10 +51,10 @@ if submitted:
                 cell_b = 'B' + str(shift + 1)
                 cell_d = 'D' + str(shift + 1)
                 ws[cell_b] = 'ARAMCO'
-                ws[cell_d] = rig_name
+                ws[cell_d] = rig_name.upper()
 
                     
-            ws['Q2']= employee_name
+            ws['Q2']= employee_name.upper()
             ws['Q3']= employee_id
             ws['Q5']= str(calendar.month_abbr[date_start.month].upper()) + ' ' + str(date_start.year) # month year
 
@@ -64,8 +64,8 @@ if submitted:
             ws['T8']= hitch * employee_rate
             ws['T19']= hitch * employee_rate
 
-            ws['O22']= employee_name
-            ws['O24']= wstl_name
+            ws['O22']= employee_name.upper()
+            ws['O24']= wstl_name.upper()
             
             wb.copy_worksheet(ws)
             ws2 = wb['timesheet Copy']
