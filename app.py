@@ -25,8 +25,8 @@ if submitted:
     with st.spinner('Working on your timesheet...'):
 
         st.write(date_in, date_out)
-        date_in_stripped = datetime.datetime.strptime(date_in, "%Y-%m-%d")
-        st.write(date_in_stripped.month)
+        #date_in_stripped = datetime.datetime.strptime(date_in, "%Y-%m-%d")
+        st.write(date_in.month)
 
 
         output = BytesIO()
