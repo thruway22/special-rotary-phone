@@ -11,7 +11,7 @@ import calendar
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
-left, middle, right = form.columns ([3, 2, 1])
+left, middle, right = form.columns ([3, 2, 2])
 employee_name = left.text_input('Name')
 employee_id = middle.number_input('ID', step=1)
 employee_rate = right.number_input('Day Rate (SAR)')
