@@ -48,7 +48,8 @@ if submitted:
             ws[cell_b] = 'ARAMCO'
             ws[cell_d] = rig_name
 
-
+        hitch_days = len(range(shift_start, shift_end))
+        st.write(hitch_days)
 
         ws['Q2']= employee_name
         ws['Q3']= employee_id
