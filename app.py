@@ -19,7 +19,7 @@ left, right = form.columns (2)
 date_start = left.date_input('Date Start')
 date_end = right.date_input('Date End')
 left, right = form.columns (2)
-rig_name = left.text_input('Rig Name')
+rig_name = left.selectbox('Rig Name', ['', 'BCTD-4', 'BCTD-5'])
 wstl_list = ['Ken Lynn', 'Pete Riley', 'Steve Baranyi', 'Ahmed Mansour']
 wstl_list.sort()
 wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
