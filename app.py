@@ -61,7 +61,8 @@ if submitted:
 
         ws['O22']= employee_name
         ws['O24']= wstl_name
-
+        
+        wb.copy_worksheet('timesheet')
         wb.save(output)
 
         st.download_button(
