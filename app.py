@@ -18,10 +18,10 @@ employee_rate = right.number_input('Day Rate (SAR)', min_value=0)
 left, right = form.columns (2)
 date_start = left.date_input('Date Start')
 date_end = right.date_input('Date End')
-rig_name = form.text_input('Rig Name')
+rig_name = right.text_input('Rig Name')
 wstl_list = ['Ken Lynn', 'Pete Riley', 'Steve Baranyi', 'Ahmed Mansour']
 wstl_list.sort()
-wstl_name = form.selectbox('Wellsite Team Leader', [''] + wstl_list)
+wstl_name = left.selectbox('Wellsite Team Leader', [''] + wstl_list)
 # expander = form.expander('Other settings')
 # expander.write('ikhy')
 
