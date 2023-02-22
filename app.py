@@ -23,8 +23,8 @@ wstl_name = form.selectbox('Wellsite Team Leader', ['KL', 'PO', 'SB', 'AM'])
 submitted = form.form_submit_button('Generate PDF File')
 
 months_dict = {
-    1: 'JAN'
-    2: 'FEB'
+    1: 'JAN',
+    2: 'FEB',
 }
 
 if submitted:
