@@ -22,10 +22,15 @@ submitted = form.form_submit_button('Generate PDF File')
 
 if submitted:
     with st.spinner('Working on your timesheet...'):
+
+        st.write(date_in, date_out)
+
         output = BytesIO()
         wb = load_workbook(filename=r'template.xlsx', read_only=False)
         ws = wb['timesheet']
-        ws['Q2']= "Saleh"
+        ws['Q2']= employee_name
+        ws['Q3']= employee_id
+        ws['Q5']= 
         ws['A2']=10
         wb.save(output)
 
