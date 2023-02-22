@@ -63,6 +63,8 @@ if submitted:
         ws['O24']= wstl_name
         
         wb.copy_worksheet(ws)
+        ws2 = wb['timesheet Copy']
+        ws2.title = "timesheet 2"
         wb.save(output)
 
         st.download_button(
