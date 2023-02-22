@@ -32,7 +32,7 @@ if submitted:
 
         st.write(date_in, date_out)
         #date_in_stripped = datetime.datetime.strptime(date_in, "%Y-%m-%d")
-        st.write(date_in.month, str(calendar.month_abbr[date_in.month]) + str(date_in.year))
+        st.write(date_in.month, str(calendar.month_abbr[date_in.month]) + ' ' + str(date_in.year))
 
 
         output = BytesIO()
