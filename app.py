@@ -6,6 +6,7 @@ from pdfrw import PdfWriter
 from io import BytesIO, StringIO
 from xlsx2html import xlsx2html
 from xhtml2pdf import pisa
+import datetime
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
@@ -24,6 +25,9 @@ if submitted:
     with st.spinner('Working on your timesheet...'):
 
         st.write(date_in, date_out)
+        date_in_stripped = datetime.datetime.strptime(date_in, "%Y-%m-%d")
+        st.write(date_in_stripped.month)
+
 
         output = BytesIO()
         wb = load_workbook(filename=r'template.xlsx', read_only=False)
