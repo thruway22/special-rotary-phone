@@ -18,7 +18,8 @@ date_start = form.date_input('Date Start')
 date_end = form.date_input('Date End')
 rig_name = form.text_input('Rig Name')
 wstl_list = ['Ken Lynn', 'Pete Riley', 'Steve Baranyi', 'Ahmed Mansour']
-wstl_name = form.selectbox('Wellsite Team Leader', wstl_list.sort())
+wstl_list.sort()
+wstl_name = form.selectbox('Wellsite Team Leader', wstl_list)
 # expander = form.expander('Other settings')
 # expander.write('ikhy')
 
