@@ -79,6 +79,23 @@ if submitted:
                 mime="application/vnd.ms-excel"
             )
 
+            # Import Library
+            from win32com import client
+            pdf_output = BytesIO()
+            # Opening Microsoft Excel
+            excel = client.Dispatch("Excel.Application")
+            # Read Excel File
+            sheets = excel.Workbooks.Open(output.getvalue())
+            work_sheets = sheets.Worksheets[0]
+            # Converting into PDF File
+            work_sheets.ExportAsFixedFormat(0, pdf_output)
+
+            st.download_button(
+                label="Download PDF Page",
+                data=pdf_output.getvalue(),
+                file_name="report.pdf",
+                mime="application/octet-stream"
+
             # output_html = BytesIO()
             # html = xlsx2html(output, b'output.html')
             #####################################
