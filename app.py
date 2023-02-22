@@ -32,7 +32,7 @@ if submitted:
 
         st.write(date_in, date_out)
         #date_in_stripped = datetime.datetime.strptime(date_in, "%Y-%m-%d")
-        st.write(date_in.month, calendar.month_abbr[date_in.month])
+        st.write(date_in.month, calendar.month_abbr[date_in.month] + date_in.year)
 
 
         output = BytesIO()
@@ -40,7 +40,7 @@ if submitted:
         ws = wb['timesheet']
         ws['Q2']= employee_name
         ws['Q3']= employee_id
-        ws['Q5']= None
+        ws['Q5']= calendar.month_abbr[date_in.month]
         ws['A2']=10
         wb.save(output)
 
