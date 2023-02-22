@@ -16,6 +16,7 @@ employee_id = form.number_input('ID', step=1)
 employee_rate = form.number_input('Day Rate (SAR)')
 date_in = form.date_input('Date In')
 date_out = form.date_input('Date Out')
+rig_name = form.text_input('Rig Name')
 wstl_name = form.selectbox('Wellsite Team Leader', ['KL', 'PO', 'SB', 'AM'])
 # expander = form.expander('Other settings')
 # expander.write('ikhy')
@@ -36,14 +37,17 @@ if submitted:
         month_start = 1
         month_end = calendar.monthrange(date_in.year, date_in.month)[1] + 1
         for day in range(month_start, month_end):
-            cell = 'A' + str(day + 1)
-            ws[cell] = day
+            cell_a = 'A' + str(day + 1)
+            ws[cell_a] = day
 
         shift_start = date_in.day
         shift_end = month_end if date_out.month > date_in.month else date_out.day + 1
         for shift in range(shift_start, shift_end):
-            cell = 'B' + str(shift + 1)
-            st.write(cell)
+            cell_b = 'B' + str(shift + 1)
+            cell_d = 'D' + str(shift + 1)
+            ws[cell_b] = 'ARAMCO'
+            ws[cell_d] = rig_name
+
 
 
         ws['Q2']= employee_name
