@@ -40,7 +40,7 @@ if submitted:
             ws[cell] = day
 
         shift_start = date_in.day
-        shift_end = month_end if date_out.month > date_in.month else date_out.day
+        shift_end = month_end if date_out.month > date_in.month else date_out.day + 1
         for i in range(shift_start, shift_end):
             st.write(i)
 
