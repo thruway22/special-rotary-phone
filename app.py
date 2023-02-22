@@ -7,6 +7,7 @@ from io import BytesIO, StringIO
 from xlsx2html import xlsx2html
 from xhtml2pdf import pisa
 import datetime
+import calendar
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
@@ -21,12 +22,17 @@ wstl_name = form.selectbox('Wellsite Team Leader', ['KL', 'PO', 'SB', 'AM'])
 
 submitted = form.form_submit_button('Generate PDF File')
 
+months_dict = {
+    1: 'JAN'
+    2: 'FEB'
+}
+
 if submitted:
     with st.spinner('Working on your timesheet...'):
 
         st.write(date_in, date_out)
         #date_in_stripped = datetime.datetime.strptime(date_in, "%Y-%m-%d")
-        st.write(date_in.month)
+        st.write(date_in.month, calendar.month_abbr[date_in.month])
 
 
         output = BytesIO()
