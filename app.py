@@ -10,7 +10,7 @@ from xhtml2pdf import pisa
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
 employee_name = form.text_input('Name')
-employee_id = form.number_input('ID')
+employee_id = form.number_input('ID', step=1)
 employee_rate = form.number_input('Day Rate (SAR)')
 date_in = form.date_input('Date In')
 date_out = form.date_input('Date Out')
