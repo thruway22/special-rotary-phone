@@ -14,8 +14,8 @@ form = st.form('input_form')
 employee_name = form.text_input('Name')
 employee_id = form.number_input('ID', step=1)
 employee_rate = form.number_input('Day Rate (SAR)')
-date_in = form.date_input('Date In')
-date_out = form.date_input('Date Out')
+date_start = form.date_input('Date Start')
+date_end = form.date_input('Date End')
 rig_name = form.text_input('Rig Name')
 wstl_name = form.selectbox('Wellsite Team Leader', ['KL', 'PO', 'SB', 'AM'])
 # expander = form.expander('Other settings')
@@ -23,25 +23,23 @@ wstl_name = form.selectbox('Wellsite Team Leader', ['KL', 'PO', 'SB', 'AM'])
 
 submitted = form.form_submit_button('Generate PDF File')
 
-months_dict = {
-    1: 'JAN',
-    2: 'FEB',
-}
-
 if submitted:
+    if date_start > date_end:
+        st.error('Starting date is later than ending date.')
+
     with st.spinner('Working on your timesheet...'):
         output = BytesIO()
         wb = load_workbook(filename=r'template.xlsx', read_only=False)
         ws = wb['timesheet']
 
         month_start = 1
-        month_end = calendar.monthrange(date_in.year, date_in.month)[1] + 1
+        month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
         for day in range(month_start, month_end):
             cell_a = 'A' + str(day + 1)
             ws[cell_a] = day
 
-        shift_start = date_in.day
-        shift_end = month_end if date_out.month > date_in.month else date_out.day + 1
+        shift_start = date_start.day
+        shift_end = month_end if date_end.month > date_start.month else date_end.day + 1
         for shift in range(shift_start, shift_end):
             cell_b = 'B' + str(shift + 1)
             cell_d = 'D' + str(shift + 1)
@@ -51,7 +49,7 @@ if submitted:
                 
         ws['Q2']= employee_name
         ws['Q3']= employee_id
-        ws['Q5']= str(calendar.month_abbr[date_in.month].upper()) + ' ' + str(date_in.year) # month year
+        ws['Q5']= str(calendar.month_abbr[date_start.month].upper()) + ' ' + str(date_start.year) # month year
 
         hitch = len(range(shift_start, shift_end)) # total shift days
         ws['O8']= hitch
