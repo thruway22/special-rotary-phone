@@ -18,6 +18,7 @@ employee_rate = right.number_input('Day Rate (SAR)', min_value=0)
 left, right = form.columns (2)
 date_start = left.date_input('Date Start')
 date_end = right.date_input('Date End')
+left, right = form.columns (2)
 rig_name = left.text_input('Rig Name')
 wstl_list = ['Ken Lynn', 'Pete Riley', 'Steve Baranyi', 'Ahmed Mansour']
 wstl_list.sort()
