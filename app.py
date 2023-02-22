@@ -25,7 +25,7 @@ wstl_list.sort()
 wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
 op = form.radio('other', ['', 'other'])
 if op == 'other':
-    test = form.number_input('Day Rate (SAR)', min_value=0)
+    test = form.number_input('test', min_value=0)
 
 # expander = form.expander('Other settings')
 # expander.write('ikhy')
