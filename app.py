@@ -48,12 +48,19 @@ if submitted:
             ws[cell_b] = 'ARAMCO'
             ws[cell_d] = rig_name
 
-        hitch_days = len(range(shift_start, shift_end))
+         
         st.write(hitch_days)
-
+        
         ws['Q2']= employee_name
         ws['Q3']= employee_id
-        ws['Q5']= str(calendar.month_abbr[date_in.month].upper()) + ' ' + str(date_in.year)
+        ws['Q5']= str(calendar.month_abbr[date_in.month].upper()) + ' ' + str(date_in.year) # month year
+
+        hitch = len(range(shift_start, shift_end)) # total shift days
+        ws['O8']= hitch
+        ws['Q8']= employee_rate
+        ws['T8']= hitch * employee_rate
+        ws['T19']= hitch * employee_rate
+        
         wb.save(output)
 
         st.download_button(
