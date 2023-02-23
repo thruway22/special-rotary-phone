@@ -5,6 +5,7 @@ import datetime
 import calendar
 from xlsx2html import xlsx2html
 from xhtml2pdf import pisa
+from bs4 import BeautifulSoup
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
