@@ -71,7 +71,8 @@ if submitted:
                 label="Download Excel workbook",
                 data=output.getvalue(),
                 file_name="timesheet.xlsx",
-                mime="application/vnd.ms-excel"
+                #mime="application/vnd.ms-excel"
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
 
 
