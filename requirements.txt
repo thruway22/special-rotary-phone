@@ -6,4 +6,3 @@ aspose-cells==23.2.0
 pdfrw==0.4
 xlsx2html==0.4.1
 xhtml2pdf==0.2.9
-pywin32==305
