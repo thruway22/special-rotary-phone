@@ -4,7 +4,7 @@ from io import BytesIO, StringIO
 import datetime
 import calendar
 import xlsx2html
-from xhtml2pdf import pisa
+import xhtml2pdf
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
