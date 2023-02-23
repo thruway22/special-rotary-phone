@@ -80,11 +80,7 @@ if submitted:
             )
 
 
-            st.download_button(
-                label="Download PDF Page",
-                data=pdf_output.getvalue(),
-                file_name="report.pdf",
-                mime="application/octet-stream"
+           
 
             # output_html = BytesIO()
             # html = xlsx2html(output, b'output.html')
