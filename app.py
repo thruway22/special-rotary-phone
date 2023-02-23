@@ -94,6 +94,8 @@ if submitted:
                 mime="application/octet-stream"
             )
 
+            st.write(out_stream.read())
+
             pdf_output = BytesIO()
             #result_file = open(pdf_output, "w+b")
             pisa_stat = pisa.CreatePDF(out_stream.getvalue(), dest=pdf_output)
@@ -106,7 +108,7 @@ if submitted:
                 file_name="report.pdf",
                 mime="application/octet-stream")
 
-            soup = BeautifulSoup(out_stream.seek(0), 'html.parser')
+            soup = BeautifulSoup(out_stream.read(), 'html.parser')
             head = soup.find('head')
             head.string.replace_with(
                 '<meta charset="UTF-8"><title>Title</title> @page {size: letter landscape;margin: 2cm;}'
