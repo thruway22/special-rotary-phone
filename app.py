@@ -94,7 +94,7 @@ if submitted:
                 mime="application/octet-stream"
             )
 
-            st.write(out_stream.read())
+            st.write(out_stream.getvalue())
 
             pdf_output = BytesIO()
             #result_file = open(pdf_output, "w+b")
