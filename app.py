@@ -75,7 +75,7 @@ if submitted:
             st.download_button(
                 label="Download Excel workbook",
                 data=output.getvalue(),
-                file_name="workbook",
+                file_name="timesheet.xlsx",
                 mime="application/vnd.ms-excel"
             )
 
