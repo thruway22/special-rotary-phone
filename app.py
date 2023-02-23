@@ -94,7 +94,7 @@ if submitted:
                 mime="application/octet-stream"
             )
 
-            st.write(out_stream.getvalue())
+            #st.write(out_stream.getvalue())
 
             pdf_output = BytesIO()
             #result_file = open(pdf_output, "w+b")
@@ -108,7 +108,7 @@ if submitted:
                 file_name="report.pdf",
                 mime="application/octet-stream")
 
-            soup = BeautifulSoup(out_stream.read(), 'html.parser')
+            soup = BeautifulSoup(str(out_stream.getvalue()), 'html.parser')
             head = soup.find('head')
             head.string.replace_with(
                 '<meta charset="UTF-8"><title>Title</title> @page {size: letter landscape;margin: 2cm;}'
