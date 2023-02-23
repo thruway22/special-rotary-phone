@@ -3,7 +3,7 @@ from openpyxl import load_workbook
 from io import BytesIO, StringIO
 import datetime
 import calendar
-import xlsx2html
+from xlsx2html import xlsx2html
 import xhtml2pdf
 
 st.title('BakerTimeSheetGenerator')
