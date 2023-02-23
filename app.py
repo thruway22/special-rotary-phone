@@ -108,7 +108,7 @@ if submitted:
 
             soup = BeautifulSoup(out_stream.read(), 'html.parser')
             #head = soup.find('head')
-            head_tag = soup.head
+            head = soup.head
             head.string.replace_with(
                 '<meta charset="UTF-8"><title>Title</title> @page {size: letter landscape;margin: 2cm;}'
                 )
