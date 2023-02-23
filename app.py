@@ -3,6 +3,8 @@ from openpyxl import load_workbook
 from io import BytesIO, StringIO
 import datetime
 import calendar
+import xlsx2html
+import xhtml2pdf
 
 st.title('BakerTimeSheetGenerator')
 form = st.form('input_form')
@@ -80,29 +82,29 @@ if submitted:
 
             # output_html = BytesIO()
             # html = xlsx2html(output, b'output.html')
-            #####################################
-            # out_stream = xlsx2html(output)
-            # out_stream.seek(0)
+            ####################################
+            out_stream = xlsx2html(output)
+            out_stream.seek(0)
             
 
-            # st.download_button(
-            #     label="Download Html Page",
-            #     data=out_stream.read(),
-            #     file_name="report.html",
-            #     mime="application/octet-stream"
-            # )
+            st.download_button(
+                label="Download Html Page",
+                data=out_stream.read(),
+                file_name="report.html",
+                mime="application/octet-stream"
+            )
             # ####################################
-            # pdf_output = BytesIO()
-            # #result_file = open(pdf_output, "w+b")
-            # pisa_stat = pisa.CreatePDF(out_stream.getvalue(), dest=pdf_output)
-            # #pdf_output.close()
-            # #pdf_output.seek(0)
+            pdf_output = BytesIO()
+            #result_file = open(pdf_output, "w+b")
+            pisa_stat = pisa.CreatePDF(out_stream.getvalue(), dest=pdf_output)
+            #pdf_output.close()
+            #pdf_output.seek(0)
 
-            # st.download_button(
-            #     label="Download pdf Page",
-            #     data=pdf_output.getvalue(),
-            #     file_name="report.pdf",
-            #     mime="application/octet-stream")
+            st.download_button(
+                label="Download pdf Page",
+                data=pdf_output.getvalue(),
+                file_name="report.pdf",
+                mime="application/octet-stream")
 
             # pdf_out = BytesIO()
             # y = PdfWriter()
