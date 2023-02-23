@@ -106,7 +106,7 @@ if submitted:
                 file_name="report.pdf",
                 mime="application/octet-stream")
 
-            soup = BeautifulSoup(out_stream.read(), 'html.parser')
+            soup = BeautifulSoup(out_stream, 'html.parser')
             head = soup.find('head')
             head.string.replace_with(
                 '<meta charset="UTF-8"><title>Title</title> @page {size: letter landscape;margin: 2cm;}'
