@@ -86,7 +86,6 @@ if submitted:
             ####################################
             out_stream = xlsx2html(output)
             out_stream.seek(0)
-            
 
             st.download_button(
                 label="Download Html Page",
@@ -94,7 +93,7 @@ if submitted:
                 file_name="report.html",
                 mime="application/octet-stream"
             )
-            # ####################################
+
             pdf_output = BytesIO()
             #result_file = open(pdf_output, "w+b")
             pisa_stat = pisa.CreatePDF(out_stream.getvalue(), dest=pdf_output)
@@ -103,6 +102,24 @@ if submitted:
 
             st.download_button(
                 label="Download pdf Page",
+                data=pdf_output.getvalue(),
+                file_name="report.pdf",
+                mime="application/octet-stream")
+
+            soup = BeautifulSoup(out_stream.read(), 'html.parser')
+            head = soup.find('head')
+            head.string.replace_with(
+                '<meta charset="UTF-8"><title>Title</title> @page {size: letter landscape;margin: 2cm;}'
+                )
+
+            pdf_output = BytesIO()
+            #result_file = open(pdf_output, "w+b")
+            pisa_stat = pisa.CreatePDF(soup, dest=pdf_output)
+            #pdf_output.close()
+            #pdf_output.seek(0)
+
+            st.download_button(
+                label="Download pdf Page 2",
                 data=pdf_output.getvalue(),
                 file_name="report.pdf",
                 mime="application/octet-stream")
