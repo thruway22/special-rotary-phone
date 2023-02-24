@@ -115,7 +115,7 @@ if submitted:
             head = soup.find('head')
             soup.find('head')
             head.append(
-                BeautifulSoup('<style>@page {size: A4 landscape; margin: 2cm;}</style>', 'html.parser'))
+                BeautifulSoup('<style>@page {size: A4 landscape; @frame content_frame {left: 50pt; width: 842pt; top: 50pt; height: 595pt;}}</style>', 'html.parser'))
             st.code(head, 'html')
 
 
