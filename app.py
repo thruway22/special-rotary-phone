@@ -116,7 +116,6 @@ if submitted:
             head.append('@page {size: a4 landscape;margin: 2cm;}')
             st.code(head, 'html')
 
-            st.stop()
             # for i in soup.find_all('small'):
             #     if i.string :
             #         i.string.replace_with(i.string.replace(u'\xa0', '-'))
@@ -129,15 +128,15 @@ if submitted:
             #     '<meta charset="UTF-8"><title>Title</title> @page {size: letter landscape;margin: 2cm;}'
             #     )
 
-            pdf_output = BytesIO()
+            pdf_output2 = BytesIO()
             #result_file = open(pdf_output, "w+b")
-            pisa_stat = pisa.CreatePDF(soup, dest=pdf_output)
+            pisa_stat2 = pisa.CreatePDF(soup, dest=pdf_output2)
             #pdf_output.close()
             #pdf_output.seek(0)
 
             st.download_button(
                 label="Download pdf Page 2",
-                data=pdf_output.getvalue(),
+                data=pdf_output2.getvalue(),
                 file_name="report.pdf",
                 mime="application/octet-stream")
 
