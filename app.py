@@ -137,7 +137,7 @@ if submitted:
             st.download_button(
                 label="Download pdf Page 2",
                 data=pdf_output2.getvalue(),
-                file_name="report.pdf",
+                file_name="lsreprot.pdf",
                 mime="application/octet-stream")
 
             # pdf_out = BytesIO()
