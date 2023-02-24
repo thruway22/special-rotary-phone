@@ -112,19 +112,18 @@ if submitted:
             #st.stop()
 
             soup = BeautifulSoup(str(out_stream.getvalue()), 'html.parser')
-            head = soup.find('head')
-            head.append('test')
+            soup.find('head').append('@page {size: a4 landscape;margin: 2cm;}')
             st.code(head, 'html')
 
             st.stop()
             # for i in soup.find_all('small'):
             #     if i.string :
             #         i.string.replace_with(i.string.replace(u'\xa0', '-'))
-            for i in soup.find_all('head'):
-                if i.string :
-                    i.string.replace_with(
-                        '@page {size: a4 landscape;margin: 2cm;}'
-                        )
+            # for i in soup.find_all('head'):
+            #     if i.string :
+            #         i.string.replace_with(
+            #             '@page {size: a4 landscape;margin: 2cm;}'
+            #             )
             # head.string.replace_with(
             #     '<meta charset="UTF-8"><title>Title</title> @page {size: letter landscape;margin: 2cm;}'
             #     )
