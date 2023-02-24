@@ -118,6 +118,10 @@ if submitted:
                 BeautifulSoup('<style>@page {size: A4 landscape; @frame content_frame {left: 2pt; width: 1200pt; top: 2pt; height: 595pt;}}</style>', 'html.parser'))
             st.code(head, 'html')
 
+            for i in soup.find_all('col'):
+                st.code(i, 'html')
+            st.stop()
+
 
             # BeautifulSoup('<tr>string</tr>', 'html.parser')
 
