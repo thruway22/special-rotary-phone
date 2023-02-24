@@ -114,8 +114,12 @@ if submitted:
             soup = BeautifulSoup(str(out_stream.getvalue()), 'html.parser')
             head = soup.find('head')
             soup.find('head')
-            head.append("<style>@page {size: A4 landscape; margin: 2cm;}</style>")
+            head.append(
+                BeautifulSoup('<style>@page {size: A4 landscape; margin: 2cm;}</style>', , 'html.parser'))
             st.code(head, 'html')
+
+
+            # BeautifulSoup('<tr>string</tr>', 'html.parser')
 
             # for i in soup.find_all('small'):
             #     if i.string :
