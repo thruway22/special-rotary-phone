@@ -112,8 +112,9 @@ if submitted:
             #st.stop()
 
             soup = BeautifulSoup(str(out_stream.getvalue()), 'html.parser')
-            head = soup.find('head')
+            head = soup.find('head').string
             st.code(head, 'html')
+
             st.stop()
             # for i in soup.find_all('small'):
             #     if i.string :
