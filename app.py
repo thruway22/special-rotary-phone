@@ -114,7 +114,7 @@ if submitted:
             soup = BeautifulSoup(str(out_stream.getvalue()), 'html.parser')
             head = soup.find('head')
             head.append('@page {size: a4 landscape;margin: 2cm;}')
-            st.code(soup, 'html')
+            st.code(soup.getvalue(), 'html')
 
             # for i in soup.find_all('small'):
             #     if i.string :
