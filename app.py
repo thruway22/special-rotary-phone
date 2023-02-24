@@ -109,10 +109,12 @@ if submitted:
                 mime="application/octet-stream")
 
             st.code(out_stream.getvalue(), 'html')
-            st.stop()
+            #st.stop()
 
             soup = BeautifulSoup(str(out_stream.getvalue()), 'html.parser')
             head = soup.find('head')
+            st.code(head, 'html')
+            st.stop()
             # for i in soup.find_all('small'):
             #     if i.string :
             #         i.string.replace_with(i.string.replace(u'\xa0', '-'))
