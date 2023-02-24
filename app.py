@@ -113,7 +113,7 @@ if submitted:
 
             soup = BeautifulSoup(str(out_stream.getvalue()), 'html.parser')
             head = soup.find('head')
-            soup.head.append('test')
+            head.append('test')
             st.code(head, 'html')
 
             st.stop()
