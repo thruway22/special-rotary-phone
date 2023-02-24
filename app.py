@@ -108,6 +108,9 @@ if submitted:
                 file_name="report.pdf",
                 mime="application/octet-stream")
 
+            st.code(out_stream.getvalue(), 'html')
+            st.stop()
+
             soup = BeautifulSoup(str(out_stream.getvalue()), 'html.parser')
             head = soup.find('head')
             # for i in soup.find_all('small'):
