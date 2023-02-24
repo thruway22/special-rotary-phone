@@ -119,7 +119,7 @@ if submitted:
             st.code(head, 'html')
 
             for i in soup.find_all('col'):
-                del i[attribute]
+                del i['style']
                 st.code(i, 'html')
             st.stop()
 
