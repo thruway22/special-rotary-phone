@@ -115,7 +115,8 @@ if submitted:
             head = soup.find('head')
             soup.find('head')
             head.append(
-                BeautifulSoup('<style>@page {size: A4 landscape; @frame content_frame {left: 2pt; width: 1200pt; top: 2pt; height: 595pt;}}</style>', 'html.parser'))
+                BeautifulSoup(
+                    '<style>@page {size: A4 landscape; @frame content_frame {left: 2pt; width: 1200pt; top: 2pt; height: 595pt;}} #col1 {width: 67.19999999999999;} #col2 {width: 157.44;} #col3 {width: 122.88;} #col4 {width: 120.0;} #col5 {width: 100.80000000000001;} #col6 {width: 67.19999999999999;} #col7 {width: 94.08;} #col8 {width: 67.19999999999999;} #col9 {width: 115.19999999999999;} #col10 {width: 100.80000000000001;} #col11 {width: 86.4;} #col12 {width: 67.19999999999999;} #col13 {width: 110.39999999999999;} #col14 {width: 67.19999999999999;} #col15 {width: 67.19999999999999;} #col16 {width: 38.400000000000006;} #col17 {width: 72.96000000000001;} #col18 {width: 70.08;} #col19 {width: 148.8;} #col20 {width: 100.80000000000001;} #col21 {width: 197.76;} #col22 {width: 84.48;} #col23 {width: 84.48;} #col24 {width: 84.48;} #col25 {width: 84.48;} #col26 {width: 84.48;} #col27 {width: 84.48;} #col28 {width: 84.48;}</style>', 'html.parser'))
             st.code(head, 'html')
 
             col = 1
@@ -124,7 +125,7 @@ if submitted:
                 i['id'] = 'col'+ str(col)
                 col += 1
                 st.code(i, 'html')
-            st.stop()
+            #st.stop()
 
 
             # BeautifulSoup('<tr>string</tr>', 'html.parser')
