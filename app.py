@@ -120,6 +120,7 @@ if submitted:
 
             for i in soup.find_all('col'):
                 del i['style']
+                i['id'] = 1
                 st.code(i, 'html')
             st.stop()
 
