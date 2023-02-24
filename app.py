@@ -112,7 +112,8 @@ if submitted:
             #st.stop()
 
             soup = BeautifulSoup(str(out_stream.getvalue()), 'html.parser')
-            soup.find('head').append('@page {size: a4 landscape;margin: 2cm;}')
+            head = soup.find('head')
+            head.append('@page {size: a4 landscape;margin: 2cm;}')
             st.code(head, 'html')
 
             st.stop()
