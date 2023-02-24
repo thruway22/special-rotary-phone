@@ -130,7 +130,7 @@ if submitted:
 
             pdf_output2 = BytesIO()
             #result_file = open(pdf_output, "w+b")
-            pisa_stat = pisa.CreatePDF(soup, dest=pdf_output2)
+            pisa_stat = pisa.CreatePDF(str(soup), dest=pdf_output2)
             #pdf_output.close()
             #pdf_output.seek(0)
 
