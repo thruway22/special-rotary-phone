@@ -118,10 +118,10 @@ if submitted:
                 BeautifulSoup('<style>@page {size: A4 landscape; @frame content_frame {left: 2pt; width: 1200pt; top: 2pt; height: 595pt;}}</style>', 'html.parser'))
             st.code(head, 'html')
 
-            col = 1
+            col = 
             for i in soup.find_all('col'):
                 del i['style']
-                i['id'] = col
+                i['id'] = 'col'+ str(col)
                 col += 1
                 st.code(i, 'html')
             st.stop()
