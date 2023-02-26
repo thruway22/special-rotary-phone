@@ -25,7 +25,7 @@ wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
 # expander = form.expander('Other settings')
 # expander.write('ikhy')
 
-submitted = form.form_submit_button('Generate PDF File')
+submitted = form.form_submit_button('Generate File')
 
 if submitted:
     if date_start > date_end:
@@ -71,7 +71,7 @@ if submitted:
             wb.save(output)
 
             st.download_button(
-                label="Download Excel workbook",
+                label="Download Excel File",
                 data=output.getvalue(),
                 file_name="timesheet",
                 #mime="application/vnd.ms-excel"
