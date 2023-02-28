@@ -37,6 +37,9 @@ if submitted:
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
 
+            if employee_id.str.startswith('#'):
+                st.write('Done')
+
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
             for day in range(month_start, month_end):
