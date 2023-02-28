@@ -78,6 +78,8 @@ if submitted:
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
 
+            st.write(st.write("My cool secrets:", st.secrets["310816"]["name"]))
+
             st.stop()
            
             ###################
