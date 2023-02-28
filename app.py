@@ -38,7 +38,7 @@ if submitted:
             ws = wb['timesheet']
 
             if str(employee_id).startswith('#'):
-                st.write('Done')
+                st.write("My cool secrets:", st.secrets["310816"]["name"])
 
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
@@ -80,8 +80,6 @@ if submitted:
                 #mime="application/vnd.ms-excel"
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             )
-
-            st.write(st.write("My cool secrets:", st.secrets["310816"]["name"]))
 
             st.stop()
            
