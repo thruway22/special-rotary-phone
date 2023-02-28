@@ -33,15 +33,19 @@ if submitted:
 
     else:
         with st.spinner('Working on your timesheet...'):
+            if employee_name.startswith('#'):
+                try:
+                    employee_name = st.secrets[employee_name[1:]]['name']
+                    employee_rate = st.secrets[employee_name[1:]]['rate']
+                except KeyError:
+                    st.error('ERROR')
+                    st.stop()
+
+            st.write(employee_name, employee_rate)
+
             output = BytesIO()
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
-
-            if employee_name.startswith('#'):
-                try:
-                    st.write("My cool secrets:", st.secrets[employee_name[1:]]["name"])
-                except KeyError:
-                    st.error('ERROR')
 
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
