@@ -8,6 +8,7 @@ from xhtml2pdf import pisa
 from bs4 import BeautifulSoup
 
 st.title('BakerTimeSheetGenerator')
+quick_access = st.text_input('Quick Access')
 form = st.form('input_form')
 left, middle, right = form.columns ([2, 1, 1])
 employee_name = left.text_input('Name')
