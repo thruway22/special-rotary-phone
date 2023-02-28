@@ -37,7 +37,7 @@ if submitted:
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
 
-            if employee_id.str.startswith('#'):
+            if str(employee_id).startswith('#'):
                 st.write('Done')
 
             month_start = 1
