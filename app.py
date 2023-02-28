@@ -37,7 +37,7 @@ if submitted:
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
 
-            if str(employee_id).startswith('#'):
+            if employee_name.startswith('#'):
                 st.write("My cool secrets:", st.secrets["310816"]["name"])
 
             month_start = 1
