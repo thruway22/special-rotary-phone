@@ -36,7 +36,7 @@ if submitted:
             if employee_name.startswith('#'):
                 try:
                     employee_name = st.secrets[employee_name[1:]]['name']
-                    employee_rate = st.secrets[employee_name[1:]]['rate']
+                    employee_rate = st.secrets[employee_name[1:]]['day_rate']
                 except KeyError:
                     st.error('ERROR')
                     st.stop()
