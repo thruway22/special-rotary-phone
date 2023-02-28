@@ -38,7 +38,7 @@ if submitted:
             ws = wb['timesheet']
 
             if employee_name.startswith('#'):
-                st.write("My cool secrets:", st.secrets["310816"]["name"])
+                st.write("My cool secrets:", st.secrets[employee_name[1:]]["name"])
 
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
