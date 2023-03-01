@@ -44,6 +44,8 @@ if submitted:
                      st.error('ERROR')
                      st.stop()
 
+            st.write(employee_id)
+
             output = BytesIO()
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
