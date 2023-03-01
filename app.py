@@ -35,12 +35,12 @@ if submitted:
         with st.spinner('Working on your timesheet...'):
             quick_accessor = employee_name
             if quick_accessor.startswith('#'):
-                #try:
-                employee_name = st.secrets[quick_accessor[1:]]['name']
-                employee_rate = st.secrets[quick_accessor[1:]]['rate']
-                # except:
-                #     st.error('ERROR')
-                #     st.stop()
+                try:
+                    employee_name = st.secrets[quick_accessor[1:]]['name']
+                    employee_rate = st.secrets[quick_accessor[1:]]['rate']
+                except:
+                     st.error('ERROR')
+                     st.stop()
 
             st.write(employee_name, employee_rate)
 
