@@ -36,8 +36,8 @@ if submitted:
             quick_accessor = employee_name
             if quick_accessor.startswith('#'):
                 try:
+                    employee_id = st.secrets[quick_accessor[1:]]
                     employee_name = st.secrets[quick_accessor[1:]]['name']
-                    employee_id = st.secrets[quick_accessor[1:]]['id']
                     employee_rate = st.secrets[quick_accessor[1:]]['rate']
                     rig_name = st.secrets[quick_accessor[1:]]['rig']
                 except:
