@@ -7,7 +7,7 @@ from xlsx2html import xlsx2html
 from xhtml2pdf import pisa
 from bs4 import BeautifulSoup
 
-st.title('BakerTimeSheetGenerator')
+st.title('TimesheetGO')
 form = st.form('input_form')
 left, middle, right = form.columns ([2, 1, 1])
 employee_name = left.text_input('Name')
