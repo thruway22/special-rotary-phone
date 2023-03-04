@@ -65,6 +65,7 @@ if submitted:
                     
             ws['Q2']= employee_name.upper()
             ws['Q3']= employee_id
+            ws['Q4']= 'KSA'
             ws['Q5']= str(calendar.month_abbr[date_start.month].upper()) + ' ' + str(date_start.year) # month year
 
             hitch = len(range(shift_start, shift_end)) # total shift days
