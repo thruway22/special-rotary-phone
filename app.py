@@ -31,6 +31,9 @@ if submitted:
     if date_start > date_end:
         st.error('Starting date is later than ending date.')
 
+    elif date_start.month != date_end.month or date_start.year != date_end.year: 
+        st.error('Starting date and ending date must in the same month/year.')
+
     else:
         with st.spinner('Working on your timesheet...'):
             quick_accessor = employee_name
