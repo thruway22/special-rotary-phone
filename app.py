@@ -9,8 +9,8 @@ from bs4 import BeautifulSoup
 
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
-simple, advanced = st.tabs(['Simple', 'Advanced'])
-form = simple.form('input_form')
+# simple, advanced = st.tabs(['Simple', 'Advanced'])
+form = st.form('input_form')
 left, middle, right = form.columns ([2, 1, 1])
 employee_name = left.text_input('Name')
 employee_id = middle.number_input('ID', step=1, min_value=0)
