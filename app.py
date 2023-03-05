@@ -87,12 +87,15 @@ if submitted:
             # ws2.title = "timesheet 2"
             wb.save(output)
 
+            output_file_name = 'TS-{}-{}'.format(
+                employee_id, str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
+
             st.download_button(
-                label="Download Excel File",
+                label='Download Excel File',
                 data=output.getvalue(),
-                file_name="timesheet",
+                file_name=output_file_name,
                 #mime="application/vnd.ms-excel"
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
 
             st.stop()
