@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 st.title('💰 TimesheetGO')
 st.write('An easy and quick timesheet maker for Baker boys. En \
- enter your')
+        Type your info and click "generate timesheet".')
 form = st.form('input_form')
 left, middle, right = form.columns ([2, 1, 1])
 employee_name = left.text_input('Name')
