@@ -8,8 +8,7 @@ from xhtml2pdf import pisa
 from bs4 import BeautifulSoup
 
 st.title('💰 TimesheetMaker')
-st.write('An easy and quick timesheet maker for Baker boys. \
-        To achieve privacy, all entered data is temporarily stored and locally processed on your device''s private memory.')
+st.write('An easy and quick timesheet maker for Baker boys.')
 # simple, advanced = st.tabs(['Simple', 'Advanced'])
 form = st.form('input_form')
 left, middle, right = form.columns ([2, 1, 1])
