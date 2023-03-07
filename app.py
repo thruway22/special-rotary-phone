@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
 st.write('Pointers')
-st.markdown('All entered data are temporarily stored and locally processed in your device"s private memory. Nothing leaves your device.')
+st.markdown('- All entered data are temporarily stored and locally processed in your device"s private memory. Nothing leaves your device.')
 st.markdown("- Item 2")
 st.markdown("- Item 3")
 
