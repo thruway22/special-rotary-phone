@@ -9,10 +9,10 @@ from bs4 import BeautifulSoup
 
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
-st.write('Pointers')
+st.write('Pointers:')
 
 pointers = [
-    'a',
+    'At the moment, the starting and ending date must be in the same month/year.',
     'All entered data are temporarily stored and locally processed in your device"s private memory. Nothing leaves your device.',
     'c']
 
