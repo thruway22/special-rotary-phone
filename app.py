@@ -75,13 +75,15 @@ if submitted:
                 month_end = calendar.monthrange(input_date.year, input_date.month)[1] + 1
                 for day in range(month_start, month_end):
                     cell_a = 'A' + str(day + 1)
-                    locals()['ws[cell_a]'] = day
+                    globals()['ws'][cell_a] = day
 
-            month_start = 1
-            month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
-            for day in range(month_start, month_end):
-                cell_a = 'A' + str(day + 1)
-                ws[cell_a] = day
+            # month_start = 1
+            # month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
+            # for day in range(month_start, month_end):
+            #     cell_a = 'A' + str(day + 1)
+            #     ws[cell_a] = day
+
+            print_month_range(date_start)
 
             shift_start = date_start.day
             shift_end = month_end if date_end.month > date_start.month else date_end.day + 1
