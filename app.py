@@ -104,7 +104,7 @@ if submitted:
 
             file_name = 'Timesheet-{}'.format(employee_id)
             
-            if date_end.month > date_start.month and date_end.year == date_start.year:
+            if date_start.month + 1 == date_end.month and date_end.year == date_start.year:
                 st.write('Vola!')
             # wb.copy_worksheet(ws)
             # ws2 = wb['{} Copy'.format(sheet_name)]
