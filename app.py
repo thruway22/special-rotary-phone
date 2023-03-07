@@ -23,13 +23,13 @@ for i in lst:
 
 st.markdown(s)
 
-# st.markdown('''
-# <style>
-# [data-testid="stMarkdownContainer"] ul{
-#     list-style-position: inside;
-# }
-# </style>
-# ''', unsafe_allow_html=True)
+st.markdown('''
+<style>
+[data-testid="stMarkdownContainer"] ul{
+    list-style-position: inside;
+}
+</style>
+''', unsafe_allow_html=True)
 # simple, advanced = st.tabs(['Simple', 'Advanced'])
 form = st.form('input_form')
 left, middle, right = form.columns ([2, 1, 1])
