@@ -85,6 +85,7 @@ if submitted:
 
             print_month_range(date_start)
 
+            month_end = calendar.monthrange(input_date.year, input_date.month)[1] + 1
             shift_start = date_start.day
             shift_end = month_end if date_end.month > date_start.month else date_end.day + 1
             for shift in range(shift_start, shift_end):
