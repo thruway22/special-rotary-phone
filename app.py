@@ -66,7 +66,7 @@ if submitted:
                      st.error('ERROR')
                      st.stop()
 
-            if date_start.month > date_end.month_end
+            # if date_start.month > date_end.month_end
 
             output = BytesIO()
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
