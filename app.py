@@ -100,12 +100,15 @@ if submitted:
             ws['O24']= wstl_name.upper()
 
             sheet_name = '{}'.format(str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
-            file_name = 'Timesheet-{}'.format(employee_id)
             ws.title = sheet_name
+
+            file_name = 'Timesheet-{}'.format(employee_id)
             
-            wb.copy_worksheet(ws)
-            ws2 = wb['{} Copy'.format(sheet_name)]
-            ws2.title = "timesheet 2"
+            if date_end.month > date_start.month and date_end.year == date_start.year:
+                st.write('Vola!')
+            # wb.copy_worksheet(ws)
+            # ws2 = wb['{} Copy'.format(sheet_name)]
+            # ws2.title = "timesheet 2"
 
 
             wb.save(output)
