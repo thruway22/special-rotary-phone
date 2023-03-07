@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
 st.write("The following list won’t indent no matter what I try:")
-st.markdown("- Item 1")
+st.markdown("- Item 1 - Test")
 st.markdown("- Item 2")
 st.markdown("- Item 3")
 
