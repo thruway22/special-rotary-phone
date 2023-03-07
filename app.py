@@ -70,18 +70,18 @@ if submitted:
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
             
+            # month_start = 1
+            # month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
+            # for day in range(month_start, month_end):
+            #     cell_a = 'A' + str(day + 1)
+            #     ws[cell_a] = day
+
             def print_month_range(input_date, ws=ws):
                 month_start = 1
                 month_end = calendar.monthrange(input_date.year, input_date.month)[1] + 1
                 for day in range(month_start, month_end):
                     cell_a = 'A' + str(day + 1)
                     globals()['ws'][cell_a] = day
-
-            # month_start = 1
-            # month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
-            # for day in range(month_start, month_end):
-            #     cell_a = 'A' + str(day + 1)
-            #     ws[cell_a] = day
 
             print_month_range(date_start)
 
@@ -113,8 +113,10 @@ if submitted:
 
             file_name = 'Timesheet-{}'.format(employee_id)
             
-            if date_end.month > date_start.month and date_end.year == date_start.year:
-                st.write('Vola!')
+            if date_end.month - 1 == date_start.month and date_end.year == date_start.year:
+                wb.copy_worksheet(ws)
+                ws2 = wb['{} Copy'.format(sheet_name)]
+                ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_end.year))
             # wb.copy_worksheet(ws)
             # ws2 = wb['{} Copy'.format(sheet_name)]
             # ws2.title = "timesheet 2"
