@@ -98,10 +98,16 @@ if submitted:
 
             ws['O22']= employee_name.upper()
             ws['O24']= wstl_name.upper()
+
+            sheet_name = '{}'.format(str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
+            file_name = 'Timesheet-{}'.format(employee_id)
+            ws.title = sheet_name
             
             wb.copy_worksheet(ws)
             ws2 = wb['timesheet Copy']
             ws2.title = "timesheet 2"
+
+
             wb.save(output)
 
             output_file_name = 'TS-{}-{}'.format(
@@ -110,7 +116,7 @@ if submitted:
             st.download_button(
                 label='Download Excel File',
                 data=output.getvalue(),
-                file_name=output_file_name,
+                file_name=file_name,
                 #mime="application/vnd.ms-excel"
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
