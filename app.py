@@ -14,13 +14,22 @@ st.markdown('- All entered data are temporarily stored and locally processed in 
 st.markdown("- Item 2")
 st.markdown("- Item 3")
 
-st.markdown('''
-<style>
-[data-testid="stMarkdownContainer"] ul{
-    list-style-position: inside;
-}
-</style>
-''', unsafe_allow_html=True)
+lst = ['a', 'b', 'c']
+
+s = ''
+
+for i in lst:
+    s += "- " + i + "\n"
+
+st.markdown(s)
+
+# st.markdown('''
+# <style>
+# [data-testid="stMarkdownContainer"] ul{
+#     list-style-position: inside;
+# }
+# </style>
+# ''', unsafe_allow_html=True)
 # simple, advanced = st.tabs(['Simple', 'Advanced'])
 form = st.form('input_form')
 left, middle, right = form.columns ([2, 1, 1])
