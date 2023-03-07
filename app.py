@@ -69,6 +69,13 @@ if submitted:
             output = BytesIO()
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
+            
+            def print_month_range(input_date, ws=ws):
+                month_start = 1
+                month_end = calendar.monthrange(input_date.year, input_date.month)[1] + 1
+                for day in range(month_start, month_end):
+                    cell_a = 'A' + str(day + 1)
+                    locals()['ws[cell_a]'] = day
 
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
@@ -104,7 +111,7 @@ if submitted:
 
             file_name = 'Timesheet-{}'.format(employee_id)
             
-            if date_start.month + 1 == date_end.month and date_end.year == date_start.year:
+            if date_end.month > date_start.month and date_end.year == date_start.year:
                 st.write('Vola!')
             # wb.copy_worksheet(ws)
             # ws2 = wb['{} Copy'.format(sheet_name)]
