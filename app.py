@@ -9,22 +9,22 @@ from bs4 import BeautifulSoup
 
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
-st.write('Pointers:')
+# st.write('Pointers:')
 
-pointers = [
-    "At the moment, the starting and ending date must be in the same month/year.",
-    "All entered data are temporarily stored and locally processed in your device's private memory. Nothing leaves your device.",
-    "c"]
+# pointers = [
+#     "At the moment, the starting and ending date must be in the same month/year.",
+#     "All entered data are temporarily stored and locally processed in your device's private memory. Nothing leaves your device.",
+#     "c"]
 
-output_list = ''
-for i in pointers:
-    output_list += '- ' + i + '\n'
+# output_list = ''
+# for i in pointers:
+#     output_list += '- ' + i + '\n'
 
-st.markdown(output_list)
+# st.markdown(output_list)
 
-st.markdown(
-    '''<style>[data-testid="stMarkdownContainer"] ul{list-style-position: inside;}</style>''',
-    unsafe_allow_html=True)
+# st.markdown(
+#     '''<style>[data-testid="stMarkdownContainer"] ul{list-style-position: inside;}</style>''',
+#     unsafe_allow_html=True)
 
 # simple, advanced = st.tabs(['Simple', 'Advanced'])
 form = st.form('input_form')
@@ -50,8 +50,8 @@ if submitted:
     if date_start > date_end:
         st.error('Starting date is later than ending date.')
 
-    # elif date_start.month != date_end.month or date_start.year != date_end.year:
-    #     st.error('At the moment, starting date and ending date must be in the same month/year. The possibility of making timesheets that spans over multiple months will be added later.')
+    elif date_start.month != date_end.month or date_start.year != date_end.year:
+         st.error('At the moment, starting date and ending date must be in the same month/year. The possibility of making timesheets that spans over multiple months will be added later.')
 
     else:
         with st.spinner('Working on your timesheet...'):
@@ -66,26 +66,27 @@ if submitted:
                      st.error('ERROR')
                      st.stop()
 
+            if date_start.month > date_end.month_end
+
             output = BytesIO()
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
             
-            # month_start = 1
-            # month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
-            # for day in range(month_start, month_end):
-            #     cell_a = 'A' + str(day + 1)
-            #     ws[cell_a] = day
-
-            def print_month_range(input_date, ws=ws):
-                month_start = 1
-                month_end = calendar.monthrange(input_date.year, input_date.month)[1] + 1
-                for day in range(month_start, month_end):
-                    cell_a = 'A' + str(day + 1)
-                    globals()['ws'][cell_a] = day
-
-            print_month_range(date_start)
-
+            month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
+            for day in range(month_start, month_end):
+                cell_a = 'A' + str(day + 1)
+                ws[cell_a] = day
+
+            # def print_month_range(input_date, ws=ws):
+            #     month_start = 1
+            #     month_end = calendar.monthrange(input_date.year, input_date.month)[1] + 1
+            #     for day in range(month_start, month_end):
+            #         cell_a = 'A' + str(day + 1)
+            #         globals()['ws'][cell_a] = day
+
+            # print_month_range(date_start)
+
             shift_start = date_start.day
             shift_end = month_end if date_end.month > date_start.month else date_end.day + 1
             for shift in range(shift_start, shift_end):
@@ -93,8 +94,7 @@ if submitted:
                 cell_d = 'D' + str(shift + 1)
                 ws[cell_b] = 'ARAMCO'
                 ws[cell_d] = rig_name.upper()
-
-                    
+    
             ws['Q2']= employee_name.upper()
             ws['Q3']= employee_id
             ws['Q4']= 'KSA'
@@ -112,26 +112,26 @@ if submitted:
             sheet_name = '{}'.format(str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
             ws.title = sheet_name
 
-            file_name = 'Timesheet-{}'.format(employee_id)
             
-            if date_end.month - 1 == date_start.month and date_end.year == date_start.year:
-                wb.copy_worksheet(ws)
-                ws2 = wb['{} Copy'.format(sheet_name)]
-                ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_end.year))
+            
+            # if date_end.month - 1 == date_start.month and date_end.year == date_start.year:
+            #     wb.copy_worksheet(ws)
+            #     ws2 = wb['{} Copy'.format(sheet_name)]
+            #     ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_end.year))
             # wb.copy_worksheet(ws)
             # ws2 = wb['{} Copy'.format(sheet_name)]
             # ws2.title = "timesheet 2"
-
 
             wb.save(output)
 
             output_file_name = 'TS-{}-{}'.format(
                 employee_id, str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
 
+            file_name = 'Timesheet-{}'.format(employee_id)
             st.download_button(
                 label='Download Excel File',
                 data=output.getvalue(),
-                file_name=file_name,
+                file_name=output_file_name,
                 #mime="application/vnd.ms-excel"
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
