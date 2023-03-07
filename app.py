@@ -99,9 +99,9 @@ if submitted:
             ws['O22']= employee_name.upper()
             ws['O24']= wstl_name.upper()
             
-            # wb.copy_worksheet(ws)
-            # ws2 = wb['timesheet Copy']
-            # ws2.title = "timesheet 2"
+            wb.copy_worksheet(ws)
+            ws2 = wb['timesheet Copy']
+            ws2.title = "timesheet 2"
             wb.save(output)
 
             output_file_name = 'TS-{}-{}'.format(
