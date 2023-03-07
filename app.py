@@ -104,7 +104,7 @@ if submitted:
             ws.title = sheet_name
             
             wb.copy_worksheet(ws)
-            ws2 = wb['timesheet Copy']
+            ws2 = wb['{} Copy'.format(sheet_name)]
             ws2.title = "timesheet 2"
 
 
