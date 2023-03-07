@@ -10,26 +10,22 @@ from bs4 import BeautifulSoup
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
 st.write('Pointers')
-st.markdown('- All entered data are temporarily stored and locally processed in your device"s private memory. Nothing leaves your device.')
-st.markdown("- Item 2")
-st.markdown("- Item 3")
 
-lst = ['a', 'b', 'c']
+pointers = [
+    'a',
+    'All entered data are temporarily stored and locally processed in your device"s private memory. Nothing leaves your device.',
+    'c']
 
-s = ''
+output_list = ''
+for i in pointers:
+    output_list += '- ' + i + '\n'
 
-for i in lst:
-    s += "- " + i + "\n"
+st.markdown(output_list)
 
-st.markdown(s)
+st.markdown(
+    '''<style>[data-testid="stMarkdownContainer"] ul{list-style-position: inside;}</style>''',
+    unsafe_allow_html=True)
 
-st.markdown('''
-<style>
-[data-testid="stMarkdownContainer"] ul{
-    list-style-position: inside;
-}
-</style>
-''', unsafe_allow_html=True)
 # simple, advanced = st.tabs(['Simple', 'Advanced'])
 form = st.form('input_form')
 left, middle, right = form.columns ([2, 1, 1])
