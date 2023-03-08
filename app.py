@@ -124,7 +124,7 @@ if submitted:
 
             wb.save(output)
 
-            st.write('Hi {}, your hitch is {} days and total rate is {}SAR.'.format(employee_name, hitch, hitch * employee_rate))
+            st.write('Hi {}, your hitch is {} days and total rate is {}SAR.'.format(employee_name, hitch, round(hitch * employee_rate)))
 
             output_file_name = 'TS-{}-{}'.format(
                 employee_id, str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
