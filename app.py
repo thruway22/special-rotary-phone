@@ -51,7 +51,7 @@ if submitted:
         st.error('Starting date is later than ending date.')
 
     elif date_start.month != date_end.month or date_start.year != date_end.year:
-         st.error('At the moment, starting date and ending date must be in the same month/year. The possibility of making timesheets that spans over multiple months will be added later.')
+         st.error('At the moment, starting date and ending date must be in the same month/year. The possibility of making timesheets that spans over multiple months might be added later.')
 
     else:
         with st.spinner('Working on your timesheet...'):
