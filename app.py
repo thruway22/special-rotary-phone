@@ -9,7 +9,7 @@ import calendar
 # import convertapi
 
 st.title('💰 TimesheetMaker')
-st.write('An easy and quick timesheet maker for Baker boys.')
+st.write('An easy and quick timesheet maker for BCTD Baker boys.')
 # st.write('Pointers:')
 
 # pointers = [
