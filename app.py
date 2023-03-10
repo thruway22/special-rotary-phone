@@ -3,10 +3,10 @@ from openpyxl import load_workbook
 from io import BytesIO, StringIO
 import datetime
 import calendar
-from xlsx2html import xlsx2html
-from xhtml2pdf import pisa
-from bs4 import BeautifulSoup
-import convertapi
+# from xlsx2html import xlsx2html
+# from xhtml2pdf import pisa
+# from bs4 import BeautifulSoup
+# import convertapi
 
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
@@ -41,12 +41,12 @@ rig_name = left.selectbox('Rig Name', ['', 'BCTD-4', 'BCTD-5'])
 wstl_list = ['Ken Lynn', 'Pete Riley', 'Steve Baranyi', 'Ahmed Mansour']
 wstl_list.sort()
 wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
-form.write('Caution: To produce a downloadable Excel file, an empty timesheet is loaded \
-into your device private memory. All data are then processed on you local device private memory. \
-However, to produce a PDF file, the excel file is sent to a server. ')
-pdf_options = ["I'd like my data to stay privet, generate Excel file only",
-                "I understand the caution,  generate Excel and PDF files"]
-pdf = form.radio('pdf', pdf_options, label_visibility='collapsed')
+# form.write('Caution: To produce a downloadable Excel file, an empty timesheet is loaded \
+# into your device private memory. All data are then processed on you local device private memory. \
+# However, to produce a PDF file, the excel file is sent to a server. ')
+# pdf_options = ["I'd like my data to stay privet, generate Excel file only",
+#                 "I understand the caution,  generate Excel and PDF files"]
+# pdf = form.radio('pdf', pdf_options, label_visibility='collapsed')
 
 # expander = form.expander('Other settings')
 # expander.write('ikhy')
@@ -145,18 +145,18 @@ if submitted:
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
 
-            if pdf == pdf_options[1]:
-                convertapi.api_secret = st.secrets['api_secret']
-                pdf_output = BytesIO()
-                #output.seek(0)
-                result = convertapi.convert('pdf', { 'File': output})
-                result.file.save(pdf_output)
-                st.download_button(
-                    label="Download pdf Page",
-                    data=pdf_output.getvalue(),
-                    file_name="report.pdf",
-                    mime="application/octet-stream")
-                st.write('Vola!')
+            # if pdf == pdf_options[1]:
+            #     convertapi.api_secret = st.secrets['api_secret']
+            #     pdf_output = BytesIO()
+            #     #output.seek(0)
+            #     result = convertapi.convert('pdf', { 'File': output})
+            #     result.file.save(pdf_output)
+            #     st.download_button(
+            #         label="Download pdf Page",
+            #         data=pdf_output.getvalue(),
+            #         file_name="report.pdf",
+            #         mime="application/octet-stream")
+            #     st.write('Vola!')
 
 
             st.stop()
