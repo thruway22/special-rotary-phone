@@ -44,8 +44,9 @@ wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
 form.write('Caution: To produce a downloadable Excel file, an empty timesheet is loaded \
 into your device private memory. All data are then processed on you local device private memory. \
 However, to produce a PDF file, the excel file is sent to a server. ')
-pdf = form.radio('pdf', ["I'd like my data to stay privet, generate Excel file only",
-                "I understand the caution,  generate Excel and PDF files"], label_visibility='collapsed')
+pdf_options = ["I'd like my data to stay privet, generate Excel file only",
+                "I understand the caution,  generate Excel and PDF files"]
+pdf = form.radio('pdf', pdf_options, label_visibility='collapsed')
 
 # expander = form.expander('Other settings')
 # expander.write('ikhy')
@@ -144,6 +145,8 @@ if submitted:
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
 
+            if pdf == pdf_options[1]:
+                st.write('Vola!')
 
 
             st.stop()
