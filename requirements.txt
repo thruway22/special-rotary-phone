@@ -3,3 +3,4 @@ openpyxl==3.1.1
 xlsx2html==0.4.1
 xhtml2pdf==0.2.9
 beautifulsoup4==4.11.2
+convertapi==1.6.0
