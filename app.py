@@ -40,6 +40,7 @@ rig_name = left.selectbox('Rig Name', ['', 'BCTD-4', 'BCTD-5'])
 wstl_list = ['Ken Lynn', 'Pete Riley', 'Steve Baranyi', 'Ahmed Mansour']
 wstl_list.sort()
 wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
+pdf = st.checkbox('Generate PDF file', value=False)
 
 # expander = form.expander('Other settings')
 # expander.write('ikhy')
