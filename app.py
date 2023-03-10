@@ -148,7 +148,8 @@ if submitted:
             if pdf == pdf_options[1]:
                 convertapi.api_secret = st.secrets['api_secret']
                 pdf_output = BytesIO()
-                result = convertapi.convert('pdf', { 'File': output.getvalue() })
+                output.seek(0)
+                result = convertapi.convert('pdf', { 'File': output.read()})
                 result.file.save(pdf_output)
                 st.download_button(
                     label="Download pdf Page",
