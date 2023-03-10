@@ -146,6 +146,15 @@ if submitted:
             )
 
             if pdf == pdf_options[1]:
+                convertapi.api_secret = st.secrets['api_secret']
+                pdf_output = BytesIO()
+                result = convertapi.convert('pdf', { 'File': output.getvalue() })
+                result.file.save(pdf_output)
+                st.download_button(
+                    label="Download pdf Page",
+                    data=pdf_output.getvalue(),
+                    file_name="report.pdf",
+                    mime="application/octet-stream")
                 st.write('Vola!')
 
 
