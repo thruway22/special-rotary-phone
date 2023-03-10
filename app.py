@@ -40,7 +40,9 @@ rig_name = left.selectbox('Rig Name', ['', 'BCTD-4', 'BCTD-5'])
 wstl_list = ['Ken Lynn', 'Pete Riley', 'Steve Baranyi', 'Ahmed Mansour']
 wstl_list.sort()
 wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
-form.write('Test')
+form.write('Caution: To produce a downloadable Excel file, an empty timesheet is loaded \
+into your device private memory. All data are then processed on you local device private memory. \
+However, to produce a PDF file, the excel file is sent to a server. ')
 pdf = form.checkbox('Generate PDF file', value=False)
 
 # expander = form.expander('Other settings')
