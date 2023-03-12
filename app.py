@@ -176,7 +176,7 @@ if submitted:
                 btn = st.download_button(
                         label="Download image",
                         data=file,
-                        file_name="flower.pdf",
+                        file_name="flower.png",
                         mime="application/octet-stream"
                     )
 
