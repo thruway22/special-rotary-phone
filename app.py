@@ -98,8 +98,14 @@ if submitted:
             with NamedTemporaryFile() as tmp:
                 wb.save(tmp.name)
                 output_tmp = BytesIO(tmp.read())
-            
 
+            convertapi.api_secret = st.secrets['api_secret']
+            content = output_tmp.getvalue()
+            upload_io = convertapi.UploadIO(content, 'ts.xlsx')
+            result = convertapi.convert('pdf', {
+                'File': upload_io })
+            saved_file = result.file.save(tempfile.gettempdir())
+            
             #st.write('Hi {}, your hitch is {} days and total rate is {}SAR.'.format(employee_name, hitch, round(hitch * employee_rate)))
             st.success('Your timesheet has been successfully generated. Click on download button below.')
             output_file_name = 'TS-{}-{}'.format(
@@ -112,13 +118,6 @@ if submitted:
                 #mime="application/vnd.ms-excel"
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
-
-            convertapi.api_secret = st.secrets['api_secret']
-            content = output_tmp.getvalue()
-            upload_io = convertapi.UploadIO(content, 'ts.xlsx')
-            result = convertapi.convert('pdf', {
-                'File': upload_io })
-            saved_file = result.file.save(tempfile.gettempdir())
 
             with open(saved_file, "rb") as file:
                 btn = st.download_button(
