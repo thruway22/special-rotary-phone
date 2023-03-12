@@ -77,8 +77,13 @@ if submitted:
                 wb.copy_worksheet(ws)
                 ws2 = wb['timesheet Copy']
                 ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_start.year))
+                
+                month_start = 1
+                month_end = calendar.monthrange(date_end.year, date_end.month)[1] + 1
+                for day in range(month_start, month_end):
+                    cell_a = 'A' + str(day + 1)
+                    ws2[cell_a] = day
 
-            
             
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
