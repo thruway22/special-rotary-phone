@@ -8,7 +8,7 @@ import convertapi
 from tempfile import NamedTemporaryFile
 
 st.title('💰 TimesheetMaker')
-st.write('An easy and quick timesheet maker for Baker boys.')
+st.write('An easy and quick timesheet maker for Baker boys. Created by: Saleh.')
 
 # simple, advanced = st.tabs(['Simple', 'Advanced'])
 form = st.form('input_form')
