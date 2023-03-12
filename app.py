@@ -123,7 +123,7 @@ if submitted:
             import base64
             with open(saved_file, "rb") as file:
                 base64_pdf = base64.b64encode(file.read()).decode('utf-8')
-                pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
+                pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="400" height="400" type="application/pdf"></iframe>'
                 st.markdown(pdf_display, unsafe_allow_html=True)
                 btn = st.download_button(
                         label="Download PDF File",
