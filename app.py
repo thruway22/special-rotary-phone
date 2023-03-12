@@ -165,6 +165,7 @@ if submitted:
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
             #if pdf == pdf_options[1]:
+            st.stop()
             convertapi.api_secret = st.secrets['api_secret']
 
             content = output_tmp.getvalue()
