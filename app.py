@@ -5,6 +5,7 @@ import datetime
 import calendar
 import tempfile
 import convertapi
+from tempfile import NamedTemporaryFile
 
 # from xlsx2html import xlsx2html
 # from xhtml2pdf import pisa
