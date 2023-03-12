@@ -172,9 +172,7 @@ if submitted:
             result = convertapi.convert('pdf', { 'File': upload_io })
             saved_files = result.save_files(tempfile.gettempdir())
 
-            st.write(save_files[0])
-
-            with open(saved_files, "rb") as file:
+            with open(output, "rb") as file:
                 btn = st.download_button(
                         label="Download image",
                         data=file,
