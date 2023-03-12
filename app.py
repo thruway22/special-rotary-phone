@@ -172,7 +172,7 @@ if submitted:
             st.write(saved_files)
             st.download_button(
                 label="Download pdf Page",
-                data=saved_files,
+                data=saved_files.getvalue(),
                 file_name="report.pdf",
                 mime="application/octet-stream")
             st.write('Vola!')
