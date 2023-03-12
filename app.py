@@ -169,6 +169,7 @@ if submitted:
             saved_files = result.save_files(tempfile.gettempdir())
             st.write('Vola!')
             #result.file.save(pdf_output)
+            st.write(saved_files)
             st.download_button(
                 label="Download pdf Page",
                 data=saved_files,
