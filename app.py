@@ -159,6 +159,7 @@ if submitted:
             
             #if pdf == pdf_options[1]:
             convertapi.api_secret = st.secrets['api_secret']
+            output.seek(0)
             content = output.read()
             st.write('Vola!')
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
