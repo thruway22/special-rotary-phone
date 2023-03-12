@@ -3,7 +3,9 @@ from openpyxl import load_workbook
 from io import BytesIO, StringIO
 import datetime
 import calendar
-from xlsx2html import xlsx2html
+import tempfile
+
+# from xlsx2html import xlsx2html
 # from xhtml2pdf import pisa
 # from bs4 import BeautifulSoup
 # import convertapi
@@ -169,7 +171,7 @@ if submitted:
             #     st.write('Vola!')
 
 
-            #st.stop()
+            st.stop()
            
             ###################
             ###################
