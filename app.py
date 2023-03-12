@@ -95,8 +95,8 @@ if submitted:
             sheet_name = '{}'.format(str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
             ws.title = sheet_name
 
-            output = BytesIO()
-            wb.save(output)
+            #output = BytesIO()
+            #wb.save(output)
 
             with NamedTemporaryFile() as tmp:
                 wb.save(tmp.name)
