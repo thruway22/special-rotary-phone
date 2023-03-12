@@ -170,9 +170,9 @@ if submitted:
             content = output_tmp.getvalue()
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
             result = convertapi.convert('pdf', { 'File': upload_io })
-            saved_files = result.save_files(tempfile.gettempdir())
+            saved_file = result.file.save(tempfile.gettempdir())
 
-            with open(saved_files[0], "rb") as file:
+            with open(saved_file, "rb") as file:
                 btn = st.download_button(
                         label="Download image",
                         data=file,
