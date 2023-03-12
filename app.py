@@ -41,8 +41,8 @@ if submitted:
          st.error('At the moment, starting date and ending date must be in the same month/year. The possibility of making timesheets that spans over multiple months might be added later.')
 
     else:
-        st.markdown('<img src="https://media.tenor.com/F7XbQ6Jx1C4AAAAd/koksalbaba-koksalgif.gif" style="width:80px;height:80px;">')
-        st.markdown("![Alt Text](https://media.tenor.com/F7XbQ6Jx1C4AAAAd/koksalbaba-koksalgif.gif)")
+        st.markdown('<img src="https://media.tenor.com/F7XbQ6Jx1C4AAAAd/koksalbaba-koksalgif.gif" style="width:80px;height:80px;">', unsafe_allow_html=True)
+        #st.markdown("![Alt Text](https://media.tenor.com/F7XbQ6Jx1C4AAAAd/koksalbaba-koksalgif.gif)")
         with st.spinner('Working on your timesheet...'):
             quick_accessor = employee_name
             if quick_accessor.startswith('#'):
@@ -118,7 +118,7 @@ if submitted:
 
 
             st.stop()
-            
+
             convertapi.api_secret = st.secrets['api_secret']
             content = output_tmp.getvalue()
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
