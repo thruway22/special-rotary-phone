@@ -85,7 +85,7 @@ if submitted:
                     ws2[cell_a] = day
 
                 shift_start = 1
-                shift_end = date_end.day
+                shift_end = date_end.day + 1
                 for shift in range(shift_start, shift_end):
                     cell_b = 'B' + str(shift + 1)
                     cell_d = 'D' + str(shift + 1)
