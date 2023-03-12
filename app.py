@@ -11,8 +11,9 @@ import calendar
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
 
-st.markdown('<sub>How this works?</sub> \
-            <sub>How this works?</sub>',
+st.markdown('<sub>\
+            How this works? <br>\
+            Text</sub>',
             unsafe_allow_html=True)
 
 # with st.expander('How this works?'):
