@@ -80,7 +80,7 @@ if submitted:
                     
                 return new_month
 
-            if date_end.month == next_month(date_start):
+            if date_end.month < next_month(date_start):
                 wb.copy_worksheet(ws)
                 ws2 = wb['timesheet Copy']
                 ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_start.year))
