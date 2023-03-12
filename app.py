@@ -3,7 +3,7 @@ from openpyxl import load_workbook
 from io import BytesIO, StringIO
 import datetime
 import calendar
-# from xlsx2html import xlsx2html
+from xlsx2html import xlsx2html
 # from xhtml2pdf import pisa
 # from bs4 import BeautifulSoup
 # import convertapi
@@ -11,14 +11,14 @@ import calendar
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
 
-# st.write('Note: This works by loading an empty timesheet in your')
+st.write('Note: This works by loading an empty timesheet in your')
 
-with st.expander('Click here to read me'):
-    st.write("\
-        The chart above shows some numbers I picked for you. \
-        I rolled actual dice for these, so they're *guaranteed* to \
-        be random. \
-    ")
+# with st.expander('Click here to read me'):
+#     st.write("\
+#         The chart above shows some numbers I picked for you. \
+#         I rolled actual dice for these, so they're *guaranteed* to \
+#         be random. \
+#     ")
 
 
 # st.write('Pointers:')
@@ -169,7 +169,7 @@ if submitted:
             #     st.write('Vola!')
 
 
-            st.stop()
+            #st.stop()
            
             ###################
             ###################
@@ -190,6 +190,8 @@ if submitted:
             )
 
             #st.write(out_stream.getvalue())
+
+            st.stop()
 
             pdf_output = BytesIO()
             #result_file = open(pdf_output, "w+b")
