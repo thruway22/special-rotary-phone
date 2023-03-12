@@ -53,12 +53,12 @@ rig_name = left.selectbox('Rig Name', ['', 'BCTD-4', 'BCTD-5'])
 wstl_list = ['Ken Lynn', 'Pete Riley', 'Steve Baranyi', 'Ahmed Mansour']
 wstl_list.sort()
 wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
-# form.write('Caution: To produce a downloadable Excel file, an empty timesheet is loaded \
-# into your device private memory. All data are then processed on you local device private memory. \
-# However, to produce a PDF file, the excel file is sent to a server. ')
-# pdf_options = ["I'd like my data to stay privet, generate Excel file only",
-#                 "I understand the caution,  generate Excel and PDF files"]
-# pdf = form.radio('pdf', pdf_options, label_visibility='collapsed')
+form.write('Caution: To produce a downloadable Excel file, an empty timesheet is loaded \
+into your device private memory. All data are then processed on you local device private memory. \
+However, to produce a PDF file, the excel file is sent to a server. ')
+pdf_options = ["I'd like my data to stay privet, generate Excel file only",
+                "I understand the caution,  generate Excel and PDF files"]
+pdf = form.radio('pdf', pdf_options, label_visibility='collapsed')
 
 # expander = form.expander('Other settings')
 # expander.write('ikhy')
