@@ -166,6 +166,7 @@ if submitted:
             result = convertapi.convert('pdf', { 'File': upload_io })
             #result = convertapi.convert('pdf', { 'File': output})
             saved_files = result.save_files(tempfile.gettempdir())
+            st.write('Vola!')
             #result.file.save(pdf_output)
             st.download_button(
                 label="Download pdf Page",
