@@ -73,7 +73,7 @@ if submitted:
                     
                 return new_month
 
-            if end_date.month == next_month(start_date):
+            if date_end.month == next_month(date_start):
                 wb.copy_worksheet(ws)
                 ws2 = wb['timesheet Copy']
                 ws2.title = 'timesheet 2'
