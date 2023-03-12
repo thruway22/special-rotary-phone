@@ -165,7 +165,7 @@ if submitted:
             )
             
             #if pdf == pdf_options[1]:
-            st.write(output_tmp)
+            st.write(output_tmp.read())
             convertapi.api_secret = st.secrets['api_secret']
             content = output_tmp
             st.write('Vola!')
