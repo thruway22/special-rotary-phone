@@ -84,6 +84,14 @@ if submitted:
                     cell_a = 'A' + str(day + 1)
                     ws2[cell_a] = day
 
+                shift_start = 1
+                shift_end = date_end.day
+                for shift in range(shift_start, shift_end):
+                    cell_b = 'B' + str(shift + 1)
+                    cell_d = 'D' + str(shift + 1)
+                    ws[cell_b] = 'ARAMCO'
+                    ws[cell_d] = rig_name.upper()
+
             
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
