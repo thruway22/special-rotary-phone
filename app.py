@@ -91,7 +91,8 @@ if submitted:
             
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
-            ws.oddFooter.left.text = 'test'
+            ws.oddFooter.left.text = ''
+            ws.oddFooter.right.text = ''
             
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
