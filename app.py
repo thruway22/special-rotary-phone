@@ -125,7 +125,7 @@ if submitted:
                         label="Download PDF File",
                         data=file,
                         file_name=output_file_name,
-                        mime="application/octet-stream"
+                        mime="application/pdf"
                     )
 
 
