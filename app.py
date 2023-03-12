@@ -7,6 +7,8 @@ import tempfile
 import convertapi
 from tempfile import NamedTemporaryFile
 
+st.set_page_config(page_title='BCTDTS')
+
 st.title('💰 BCTDTS')
 st.write('A quick and easy timesheet maker for Baker boys. Created by: Saleh.')
 
