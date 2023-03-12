@@ -140,13 +140,13 @@ if submitted:
                     ws2[cell_b] = 'ARAMCO'
                     ws2[cell_d] = rig_name.upper()
 
-                    ws2['Q5']= str(calendar.month_abbr[date_end.month].upper()) + ' ' + str(date_end.year)
+                ws2['Q5']= str(calendar.month_abbr[date_end.month].upper()) + ' ' + str(date_end.year)
 
-                    hitch = len(range(shift_start, shift_end)) # total shift days
-                ws['O8']= hitch
+                hitch = len(range(shift_start, shift_end)) # total shift days
+                ws2['O8']= hitch
                 # ws['Q8']= employee_rate
-                ws['T8']= hitch * employee_rate
-                ws['T19']= hitch * employee_rate
+                ws2['T8']= hitch * employee_rate
+                ws2['T19']= hitch * employee_rate
 
             
             
