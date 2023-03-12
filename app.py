@@ -156,11 +156,13 @@ if submitted:
                 #mime="application/vnd.ms-excel"
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
-            st.write('Vola!')
+            
             #if pdf == pdf_options[1]:
             convertapi.api_secret = st.secrets['api_secret']
             content = output
+            st.write('Vola!')
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
+            st.write('Vola!')
             result = convertapi.convert('pdf', { 'File': upload_io })
             #result = convertapi.convert('pdf', { 'File': output})
             saved_files = result.save_files(tempfile.gettempdir())
