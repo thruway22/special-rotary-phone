@@ -11,14 +11,14 @@ import calendar
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
 
-st.write('How this works?')
+# st.write('Note: This works by loading an empty timesheet in your')
 
-# with st.expander('How this works?'):
-#     st.write("\
-#         The chart above shows some numbers I picked for you. \
-#         I rolled actual dice for these, so they're *guaranteed* to \
-#         be random. \
-#     ")
+with st.expander('Read me'):
+    st.write("\
+        The chart above shows some numbers I picked for you. \
+        I rolled actual dice for these, so they're *guaranteed* to \
+        be random. \
+    ")
 
 
 # st.write('Pointers:')
