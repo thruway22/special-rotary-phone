@@ -31,7 +31,7 @@ wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
 #                 "I understand the caution,  generate Excel and PDF files"]
 # pdf = form.radio('pdf', pdf_options, label_visibility='collapsed')
 
-submitted = form.form_submit_button('Generate File')
+submitted = form.form_submit_button('Submit and generate my timesheet')
 
 if submitted:
     if date_start > date_end:
