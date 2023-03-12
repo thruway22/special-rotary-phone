@@ -157,20 +157,20 @@ if submitted:
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
 
-            if pdf == pdf_options[1]:
-                convertapi.api_secret = st.secrets['api_secret']
-                content = output
-                upload_io = convertapi.UploadIO(content, 'ts.xlsx')
-                result = convertapi.convert('pdf', { 'File': upload_io })
-                #result = convertapi.convert('pdf', { 'File': output})
-                saved_files = result.save_files(tempfile.gettempdir())
-                #result.file.save(pdf_output)
-                st.download_button(
-                    label="Download pdf Page",
-                    data=saved_files,
-                    file_name="report.pdf",
-                    mime="application/octet-stream")
-                st.write('Vola!')
+            #if pdf == pdf_options[1]:
+            convertapi.api_secret = st.secrets['api_secret']
+            content = output
+            upload_io = convertapi.UploadIO(content, 'ts.xlsx')
+            result = convertapi.convert('pdf', { 'File': upload_io })
+            #result = convertapi.convert('pdf', { 'File': output})
+            saved_files = result.save_files(tempfile.gettempdir())
+            #result.file.save(pdf_output)
+            st.download_button(
+                label="Download pdf Page",
+                data=saved_files,
+                file_name="report.pdf",
+                mime="application/octet-stream")
+            st.write('Vola!')
 
 
             st.stop()
