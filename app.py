@@ -166,11 +166,19 @@ if submitted:
             
             #if pdf == pdf_options[1]:
             convertapi.api_secret = st.secrets['api_secret']
-            
+
             content = output_tmp.getvalue()
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
             result = convertapi.convert('pdf', { 'File': upload_io })
             saved_files = result.save_files(tempfile.gettempdir())
+
+            with open(saved_files, "rb") as file:
+                btn = st.download_button(
+                        label="Download image",
+                        data=file,
+                        file_name="flower.png",
+                        mime="image/png"
+                    )
 
             st.download_button(
                 label="Download pdf Page",
