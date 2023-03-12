@@ -76,7 +76,7 @@ if submitted:
             if date_end.month == next_month(date_start):
                 wb.copy_worksheet(ws)
                 ws2 = wb['timesheet Copy']
-                ws2.title = 'timesheet 2'
+                ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_start.year))
 
             
             
@@ -151,7 +151,7 @@ if submitted:
                 #mime="application/vnd.ms-excel"
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
-            
+            st.stop()
             #if pdf == pdf_options[1]:
             convertapi.api_secret = st.secrets['api_secret']
 
