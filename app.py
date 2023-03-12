@@ -176,7 +176,7 @@ if submitted:
 
             content = output_tmp.getvalue()
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
-            result = convertapi.convert('png', {
+            result = convertapi.convert('pdf', {
                 'File': upload_io })
             saved_file = result.file.save(tempfile.gettempdir())
 
