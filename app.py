@@ -170,7 +170,7 @@ if submitted:
             st.write('Vola!')
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
             st.write('Vola!')
-            result = convertapi.convert('pdf', { 'File': upload_io })
+            result = convertapi.convert('pdf', { 'File': output_tmp })
             #result = convertapi.convert('pdf', { 'File': output})
             st.write('Vola!')
             saved_files = result.save_files(tempfile.gettempdir())
