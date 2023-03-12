@@ -171,6 +171,7 @@ if submitted:
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
             result = convertapi.convert('png', {
                 'File': upload_io,
+                'ClearPrintArea': 'true',
                 'ImageResolutionH': '300',
                 'ImageResolutionV': '300'})
             saved_file = result.file.save(tempfile.gettempdir())
