@@ -169,7 +169,7 @@ if submitted:
 
             content = output_tmp.getvalue()
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
-            result = convertapi.convert('pdf', { 'File': upload_io })
+            result = convertapi.convert('png', { 'File': upload_io })
             saved_file = result.file.save(tempfile.gettempdir())
 
             with open(saved_file, "rb") as file:
@@ -179,13 +179,6 @@ if submitted:
                         file_name="flower.pdf",
                         mime="application/octet-stream"
                     )
-
-            # st.download_button(
-            #     label="Download pdf Page",
-            #     data=result,
-            #     file_name="report.pdf",
-            #     mime="application/octet-stream")
-            # st.write('Vola!')
 
 
             st.stop()
