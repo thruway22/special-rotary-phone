@@ -168,7 +168,7 @@ if submitted:
             convertapi.api_secret = st.secrets['api_secret']
             content = output_tmp
             st.write('Vola!')
-            upload_io = convertapi.UploadIO(content, 'ts.xlsx')
+            upload_io = convertapi.UploadIO(output_tmp)
             st.write('Vola!')
             result = convertapi.convert('pdf', { 'File': upload_io })
             #result = convertapi.convert('pdf', { 'File': output})
