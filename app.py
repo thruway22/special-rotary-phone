@@ -129,7 +129,7 @@ if submitted:
 
             
     
-            st.write(convertapi.user())
+            st.write(convertapi.user()['SecondsLeft'])
 
             st.stop()
            
