@@ -165,6 +165,7 @@ if submitted:
             st.write('Vola!')
             result = convertapi.convert('pdf', { 'File': upload_io })
             #result = convertapi.convert('pdf', { 'File': output})
+            st.write('Vola!')
             saved_files = result.save_files(tempfile.gettempdir())
             st.write('Vola!')
             #result.file.save(pdf_output)
