@@ -10,8 +10,16 @@ import calendar
 
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
-# st.write('Pointers:')
 
+with st.expander('How this works?'):
+    st.write("\
+        The chart above shows some numbers I picked for you. \
+        I rolled actual dice for these, so they're *guaranteed* to \
+        be random. \
+    ")
+
+
+# st.write('Pointers:')
 # pointers = [
 #     "At the moment, the starting and ending date must be in the same month/year.",
 #     "All entered data are temporarily stored and locally processed in your device's private memory. Nothing leaves your device.",
