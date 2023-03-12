@@ -166,17 +166,12 @@ if submitted:
             
             #if pdf == pdf_options[1]:
             convertapi.api_secret = st.secrets['api_secret']
+            
             content = output_tmp.getvalue()
-            st.write(temp_file)
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
-            st.write('Vola!')
             result = convertapi.convert('pdf', { 'File': upload_io })
-            #result = convertapi.convert('pdf', { 'File': output})
-            st.write('Vola!')
             saved_files = result.save_files(tempfile.gettempdir())
-            st.write('Vola!')
-            #result.file.save(pdf_output)
-            st.write(saved_files)
+
             st.download_button(
                 label="Download pdf Page",
                 data=result,
