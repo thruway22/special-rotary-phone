@@ -11,12 +11,12 @@ import calendar
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
 
-with st.expander('How this works?'):
-    st.write("\
-        The chart above shows some numbers I picked for you. \
-        I rolled actual dice for these, so they're *guaranteed* to \
-        be random. \
-    ")
+# with st.expander('How this works?'):
+#     st.write("\
+#         The chart above shows some numbers I picked for you. \
+#         I rolled actual dice for these, so they're *guaranteed* to \
+#         be random. \
+#     ")
 
 
 # st.write('Pointers:')
@@ -60,6 +60,9 @@ wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
 # expander.write('ikhy')
 
 submitted = form.form_submit_button('Generate File')
+
+st.markdown('<sup><sub>Add your tiny text</sub></sup>',
+            unsafe_allow_html=True)
 
 if submitted:
     if date_start > date_end:
