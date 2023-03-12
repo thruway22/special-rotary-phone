@@ -87,7 +87,7 @@ if submitted:
 
             # if date_start.month > date_end.month_end
 
-            output = BytesIO()
+            
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
             
@@ -140,8 +140,16 @@ if submitted:
             # wb.copy_worksheet(ws)
             # ws2 = wb['{} Copy'.format(sheet_name)]
             # ws2.title = "timesheet 2"
-
+            output = BytesIO()
             wb.save(output)
+
+            temp_file = tempfile.NamedTemporaryFile()
+            with NamedTemporaryFile() as tmp:
+                wb.save(tmp.name)
+                output_tmp = BytesIO(save_virtual_workbook(wb))
+
+
+            
 
             #st.write('Hi {}, your hitch is {} days and total rate is {}SAR.'.format(employee_name, hitch, round(hitch * employee_rate)))
             st.success('Your timesheet has been successfully generated. Click on download button below.')
