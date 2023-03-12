@@ -1,44 +1,14 @@
 import streamlit as st
 from openpyxl import load_workbook
-from io import BytesIO, StringIO
+from io import BytesIO
 import datetime
 import calendar
 import tempfile
 import convertapi
 from tempfile import NamedTemporaryFile
 
-# from xlsx2html import xlsx2html
-# from xhtml2pdf import pisa
-# from bs4 import BeautifulSoup
-
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
-
-st.write('Note: This works by loading an empty timesheet in your')
-
-# with st.expander('Click here to read me'):
-#     st.write("\
-#         The chart above shows some numbers I picked for you. \
-#         I rolled actual dice for these, so they're *guaranteed* to \
-#         be random. \
-#     ")
-
-
-# st.write('Pointers:')
-# pointers = [
-#     "At the moment, the starting and ending date must be in the same month/year.",
-#     "All entered data are temporarily stored and locally processed in your device's private memory. Nothing leaves your device.",
-#     "c"]
-
-# output_list = ''
-# for i in pointers:
-#     output_list += '- ' + i + '\n'
-
-# st.markdown(output_list)
-
-# st.markdown(
-#     '''<style>[data-testid="stMarkdownContainer"] ul{list-style-position: inside;}</style>''',
-#     unsafe_allow_html=True)
 
 # simple, advanced = st.tabs(['Simple', 'Advanced'])
 form = st.form('input_form')
@@ -61,17 +31,14 @@ pdf_options = ["I'd like my data to stay privet, generate Excel file only",
                 "I understand the caution,  generate Excel and PDF files"]
 pdf = form.radio('pdf', pdf_options, label_visibility='collapsed')
 
-# expander = form.expander('Other settings')
-# expander.write('ikhy')
-
 submitted = form.form_submit_button('Generate File')
 
 if submitted:
     if date_start > date_end:
         st.error('Starting date is later than ending date.')
 
-    elif date_start.month != date_end.month or date_start.year != date_end.year:
-         st.error('At the moment, starting date and ending date must be in the same month/year. The possibility of making timesheets that spans over multiple months might be added later.')
+    # elif date_start.month != date_end.month or date_start.year != date_end.year:
+    #      st.error('At the moment, starting date and ending date must be in the same month/year. The possibility of making timesheets that spans over multiple months might be added later.')
 
     else:
         with st.spinner('Working on your timesheet...'):
@@ -96,6 +63,20 @@ if submitted:
             ws.oddFooter.left.text = ''
             ws.oddFooter.center.text = ''
             ws.oddFooter.right.text = ''
+
+            def next_month(input_date):
+                new_year = input_date.year
+                new_month = input_date.month + 1
+                if new_month > 12:
+                    new_year += 1
+                    new_month -= 12
+                    
+                return new_month
+
+            if end_date.month == next_month(start_date):
+                wb.copy_worksheet(ws)
+                ws2 = wb['timesheet Copy']
+                ws2.title = 'timesheet 2'
 
             
             
