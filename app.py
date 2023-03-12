@@ -64,6 +64,13 @@ if submitted:
             ws.oddFooter.center.text = ''
             ws.oddFooter.right.text = ''
 
+            ws['Q2']= employee_name.upper()
+            ws['Q3']= employee_id
+            ws['Q4']= 'KSA'
+            ws['Q8']= employee_rate
+            ws['O22']= employee_name.upper()
+            ws['O24']= wstl_name.upper()
+
             def next_month(input_date):
                 new_year = input_date.year
                 new_month = input_date.month + 1
@@ -116,19 +123,19 @@ if submitted:
                 ws[cell_b] = 'ARAMCO'
                 ws[cell_d] = rig_name.upper()
     
-            ws['Q2']= employee_name.upper()
-            ws['Q3']= employee_id
-            ws['Q4']= 'KSA'
+            # ws['Q2']= employee_name.upper()
+            # ws['Q3']= employee_id
+            # ws['Q4']= 'KSA'
             ws['Q5']= str(calendar.month_abbr[date_start.month].upper()) + ' ' + str(date_start.year) # month year
 
             hitch = len(range(shift_start, shift_end)) # total shift days
             ws['O8']= hitch
-            ws['Q8']= employee_rate
+            # ws['Q8']= employee_rate
             ws['T8']= hitch * employee_rate
             ws['T19']= hitch * employee_rate
 
-            ws['O22']= employee_name.upper()
-            ws['O24']= wstl_name.upper()
+            # ws['O22']= employee_name.upper()
+            # ws['O24']= wstl_name.upper()
 
             sheet_name = '{}'.format(str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
             ws.title = sheet_name
