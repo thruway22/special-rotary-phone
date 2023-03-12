@@ -114,8 +114,8 @@ if submitted:
             result = convertapi.convert('pdf', {
                 'File': upload_io })
             saved_file = result.file.save(tempfile.gettempdir())
-            
-            st.success('Your timesheet has been successfully generated. Click on download button below.')
+
+            st.success('Your timesheet has been successfully generated.')
             # st.download_button(
             #     label='Download EXCEL File',
             #     data=output_tmp.getvalue(),
