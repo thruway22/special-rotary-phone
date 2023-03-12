@@ -85,6 +85,8 @@ if submitted:
                 ws2 = wb['timesheet Copy']
                 ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_start.year))
                 
+            if len(wb.sheetnames) == 2:
+                st.write('2')
                 month_start = 1
                 month_end = calendar.monthrange(date_end.year, date_end.month)[1] + 1
                 for day in range(month_start, month_end):
