@@ -7,7 +7,7 @@ import tempfile
 import convertapi
 from tempfile import NamedTemporaryFile
 
-st.title('💰 BCTDTS')
+st.title('💰 BCTD TimeSheet Maker')
 st.write('A quick and easy timesheet maker for Baker boys. Created by: Saleh.')
 
 # simple, advanced = st.tabs(['Simple', 'Advanced'])
