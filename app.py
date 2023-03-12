@@ -107,17 +107,6 @@ if submitted:
             
             output_file_name = 'TS-{}-{}'.format(
                 employee_id, str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
-            st.success('Your timesheet has been successfully generated. Click on download button below.')
-            st.download_button(
-                label='Download EXCEL File',
-                data=output_tmp.getvalue(),
-                file_name=output_file_name,
-                #mime="application/vnd.ms-excel"
-                mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            )
-
-
-            st.stop()
 
             convertapi.api_secret = st.secrets['api_secret']
             content = output_tmp.getvalue()
@@ -125,10 +114,19 @@ if submitted:
             result = convertapi.convert('pdf', {
                 'File': upload_io })
             saved_file = result.file.save(tempfile.gettempdir())
+            
+            st.success('Your timesheet has been successfully generated. Click on download button below.')
+            # st.download_button(
+            #     label='Download EXCEL File',
+            #     data=output_tmp.getvalue(),
+            #     file_name=output_file_name,
+            #     #mime="application/vnd.ms-excel"
+            #     mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            # )
 
             with open(saved_file, "rb") as file:
                 btn = st.download_button(
-                        label="Download PDF File",
+                        label="Download My Timesheet",
                         data=file,
                         file_name=output_file_name,
                         mime="application/pdf"
