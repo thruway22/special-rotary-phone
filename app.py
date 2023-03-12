@@ -84,24 +84,7 @@ if submitted:
                 wb.copy_worksheet(ws)
                 ws2 = wb['timesheet Copy']
                 ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_start.year))
-                
-            if len(wb.sheetnames) == 2:
-                st.write('2')
-                month_start = 1
-                month_end = calendar.monthrange(date_end.year, date_end.month)[1] + 1
-                for day in range(month_start, month_end):
-                    cell_a = 'A' + str(day + 1)
-                    ws2[cell_a] = day
 
-                shift_start = 1
-                shift_end = date_end.day + 1
-                for shift in range(shift_start, shift_end):
-                    cell_b = 'B' + str(shift + 1)
-                    cell_d = 'D' + str(shift + 1)
-                    ws2[cell_b] = 'ARAMCO'
-                    ws2[cell_d] = rig_name.upper()
-
-            
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
             for day in range(month_start, month_end):
@@ -141,6 +124,29 @@ if submitted:
 
             sheet_name = '{}'.format(str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
             ws.title = sheet_name
+
+            if len(wb.sheetnames) == 2:
+                month_start = 1
+                month_end = calendar.monthrange(date_end.year, date_end.month)[1] + 1
+                for day in range(month_start, month_end):
+                    cell_a = 'A' + str(day + 1)
+                    ws2[cell_a] = day
+
+                shift_start = 1
+                shift_end = date_end.day + 1
+                for shift in range(shift_start, shift_end):
+                    cell_b = 'B' + str(shift + 1)
+                    cell_d = 'D' + str(shift + 1)
+                    ws2[cell_b] = 'ARAMCO'
+                    ws2[cell_d] = rig_name.upper()
+
+                    ws2['Q5']= str(calendar.month_abbr[date_end.month].upper()) + ' ' + str(date_end.year)
+
+                    hitch = len(range(shift_start, shift_end)) # total shift days
+                ws['O8']= hitch
+                # ws['Q8']= employee_rate
+                ws['T8']= hitch * employee_rate
+                ws['T19']= hitch * employee_rate
 
             
             
