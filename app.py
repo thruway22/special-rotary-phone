@@ -176,16 +176,16 @@ if submitted:
                 btn = st.download_button(
                         label="Download image",
                         data=file,
-                        file_name="flower.png",
-                        mime="image/png"
+                        file_name="flower.pdf",
+                        mime="application/octet-stream"
                     )
 
-            st.download_button(
-                label="Download pdf Page",
-                data=result,
-                file_name="report.pdf",
-                mime="application/octet-stream")
-            st.write('Vola!')
+            # st.download_button(
+            #     label="Download pdf Page",
+            #     data=result,
+            #     file_name="report.pdf",
+            #     mime="application/octet-stream")
+            # st.write('Vola!')
 
 
             st.stop()
