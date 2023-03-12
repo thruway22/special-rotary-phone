@@ -164,7 +164,6 @@ if submitted:
                 #mime="application/vnd.ms-excel"
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
-            st.stop()
             #if pdf == pdf_options[1]:
             convertapi.api_secret = st.secrets['api_secret']
 
