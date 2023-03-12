@@ -148,8 +148,6 @@ if submitted:
             with NamedTemporaryFile() as tmp:
                 wb.save(tmp.name)
                 output_tmp = BytesIO(tmp.read())
-
-
             
 
             #st.write('Hi {}, your hitch is {} days and total rate is {}SAR.'.format(employee_name, hitch, round(hitch * employee_rate)))
@@ -168,8 +166,7 @@ if submitted:
             
             #if pdf == pdf_options[1]:
             convertapi.api_secret = st.secrets['api_secret']
-            output.seek(0)
-            content = output.read()
+            content = output_tmp
             st.write('Vola!')
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
             st.write('Vola!')
