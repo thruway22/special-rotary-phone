@@ -125,7 +125,7 @@ if submitted:
             sheet_name = '{}'.format(str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
             ws.title = sheet_name
 
-            if len(wb.sheetnames) == 2:
+            if len(wb.sheetnames) > 1:
                 month_start = 1
                 month_end = calendar.monthrange(date_end.year, date_end.month)[1] + 1
                 for day in range(month_start, month_end):
