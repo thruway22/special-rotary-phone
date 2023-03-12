@@ -61,7 +61,7 @@ wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
 
 submitted = form.form_submit_button('Generate File')
 
-st.markdown('<sup>Add your tiny text</sup>',
+st.markdown('<sub>Add your tiny text</sub>',
             unsafe_allow_html=True)
 
 if submitted:
