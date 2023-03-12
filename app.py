@@ -6,7 +6,6 @@ import calendar
 import tempfile
 import convertapi
 from tempfile import NamedTemporaryFile
-from openpyxl.writer.excel import save_virtual_workbook
 
 # from xlsx2html import xlsx2html
 # from xhtml2pdf import pisa
@@ -148,7 +147,7 @@ if submitted:
             temp_file = tempfile.NamedTemporaryFile()
             with NamedTemporaryFile() as tmp:
                 wb.save(tmp.name)
-                output_tmp = BytesIO(save_virtual_workbook(wb))
+                output_tmp = BytesIO(tmp.read())
 
 
             
