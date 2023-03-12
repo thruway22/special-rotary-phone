@@ -13,7 +13,7 @@ st.write('An easy and quick timesheet maker for Baker boys.')
 
 # st.write('Note: This works by loading an empty timesheet in your')
 
-with st.expander('Read me'):
+with st.expander('Click here to read me'):
     st.write("\
         The chart above shows some numbers I picked for you. \
         I rolled actual dice for these, so they're *guaranteed* to \
