@@ -11,6 +11,10 @@ import calendar
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
 
+st.markdown('<sub>How this works?</sub> \
+            <sub>How this works?</sub>',
+            unsafe_allow_html=True)
+
 # with st.expander('How this works?'):
 #     st.write("\
 #         The chart above shows some numbers I picked for you. \
@@ -60,9 +64,6 @@ wstl_name = right.selectbox('Wellsite Team Leader', [''] + wstl_list)
 # expander.write('ikhy')
 
 submitted = form.form_submit_button('Generate File')
-
-st.markdown('<sub>Add your tiny text</sub>',
-            unsafe_allow_html=True)
 
 if submitted:
     if date_start > date_end:
