@@ -11,10 +11,7 @@ import calendar
 st.title('💰 TimesheetMaker')
 st.write('An easy and quick timesheet maker for Baker boys.')
 
-st.markdown('<sup>\
-            How this works? <br>\
-            Text</sup>',
-            unsafe_allow_html=True)
+st.write('How this works?')
 
 # with st.expander('How this works?'):
 #     st.write("\
