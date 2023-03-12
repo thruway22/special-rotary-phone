@@ -64,41 +64,11 @@ if submitted:
             ws.oddFooter.center.text = ''
             ws.oddFooter.right.text = ''
 
-            ws['Q2']= employee_name.upper()
-            ws['Q3']= employee_id
-            ws['Q4']= 'KSA'
-            ws['Q8']= employee_rate
-            ws['O22']= employee_name.upper()
-            ws['O24']= wstl_name.upper()
-
-            def next_month(input_date):
-                new_year = input_date.year
-                new_month = input_date.month + 1
-                if new_month > 12:
-                    new_year += 1
-                    new_month -= 12
-                    
-                return new_month
-
-            if date_end.month == next_month(date_start):
-                wb.copy_worksheet(ws)
-                ws2 = wb['timesheet Copy']
-                ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_start.year))
-
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
             for day in range(month_start, month_end):
                 cell_a = 'A' + str(day + 1)
                 ws[cell_a] = day
-
-            # def print_month_range(input_date, ws=ws):
-            #     month_start = 1
-            #     month_end = calendar.monthrange(input_date.year, input_date.month)[1] + 1
-            #     for day in range(month_start, month_end):
-            #         cell_a = 'A' + str(day + 1)
-            #         globals()['ws'][cell_a] = day
-
-            # print_month_range(date_start)
 
             shift_start = date_start.day
             shift_end = month_end if date_end.month > date_start.month else date_end.day + 1
@@ -108,59 +78,26 @@ if submitted:
                 ws[cell_b] = 'ARAMCO'
                 ws[cell_d] = rig_name.upper()
     
-            # ws['Q2']= employee_name.upper()
-            # ws['Q3']= employee_id
-            # ws['Q4']= 'KSA'
+            ws['Q2']= employee_name.upper()
+            ws['Q3']= employee_id
+            ws['Q4']= 'KSA'
             ws['Q5']= str(calendar.month_abbr[date_start.month].upper()) + ' ' + str(date_start.year) # month year
 
             hitch = len(range(shift_start, shift_end)) # total shift days
             ws['O8']= hitch
-            # ws['Q8']= employee_rate
+            ws['Q8']= employee_rate
             ws['T8']= hitch * employee_rate
             ws['T19']= hitch * employee_rate
 
-            # ws['O22']= employee_name.upper()
-            # ws['O24']= wstl_name.upper()
+            ws['O22']= employee_name.upper()
+            ws['O24']= wstl_name.upper()
 
             sheet_name = '{}'.format(str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
             ws.title = sheet_name
 
-            if len(wb.sheetnames) > 1:
-                month_start = 1
-                month_end = calendar.monthrange(date_end.year, date_end.month)[1] + 1
-                for day in range(month_start, month_end):
-                    cell_a = 'A' + str(day + 1)
-                    ws2[cell_a] = day
-
-                shift_start = 1
-                shift_end = date_end.day + 1
-                for shift in range(shift_start, shift_end):
-                    cell_b = 'B' + str(shift + 1)
-                    cell_d = 'D' + str(shift + 1)
-                    ws2[cell_b] = 'ARAMCO'
-                    ws2[cell_d] = rig_name.upper()
-
-                ws2['Q5']= str(calendar.month_abbr[date_end.month].upper()) + ' ' + str(date_end.year)
-
-                hitch = len(range(shift_start, shift_end)) # total shift days
-                ws2['O8']= hitch
-                # ws['Q8']= employee_rate
-                ws2['T8']= hitch * employee_rate
-                ws2['T19']= hitch * employee_rate
-
-            
-            
-            # if date_end.month - 1 == date_start.month and date_end.year == date_start.year:
-            #     wb.copy_worksheet(ws)
-            #     ws2 = wb['{} Copy'.format(sheet_name)]
-            #     ws2.title = '{}'.format(str(calendar.month_abbr[date_end.month].upper()) + str(date_end.year))
-            # wb.copy_worksheet(ws)
-            # ws2 = wb['{} Copy'.format(sheet_name)]
-            # ws2.title = "timesheet 2"
             output = BytesIO()
             wb.save(output)
 
-            temp_file = tempfile.NamedTemporaryFile()
             with NamedTemporaryFile() as tmp:
                 wb.save(tmp.name)
                 output_tmp = BytesIO(tmp.read())
@@ -174,7 +111,7 @@ if submitted:
             file_name = 'Timesheet-{}'.format(employee_id)
             st.download_button(
                 label='Download Excel File',
-                data=output.getvalue(),
+                data=output_tmp.getvalue(),
                 file_name=output_file_name,
                 #mime="application/vnd.ms-excel"
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
