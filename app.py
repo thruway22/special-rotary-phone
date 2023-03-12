@@ -124,7 +124,7 @@ if submitted:
                 btn = st.download_button(
                         label="Download PDF File",
                         data=file,
-                        file_name="flower.pdf",
+                        file_name=output_file_name,
                         mime="application/octet-stream"
                     )
 
