@@ -91,8 +91,13 @@ if submitted:
             
             wb = load_workbook(filename=r'template.xlsx', read_only=False)
             ws = wb['timesheet']
+
+            # remove footer
             ws.oddFooter.left.text = ''
+            ws.oddFooter.center.text = ''
             ws.oddFooter.right.text = ''
+
+            
             
             month_start = 1
             month_end = calendar.monthrange(date_start.year, date_start.month)[1] + 1
@@ -171,18 +176,15 @@ if submitted:
 
             content = output_tmp.getvalue()
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
-            result = convertapi.convert('png', {
-                'File': upload_io,
-                'ClearPrintArea': 'true',
-                'ImageResolutionH': '300',
-                'ImageResolutionV': '300'})
+            result = convertapi.convert('pdf', {
+                'File': upload_io)
             saved_file = result.file.save(tempfile.gettempdir())
 
             with open(saved_file, "rb") as file:
                 btn = st.download_button(
                         label="Download image",
                         data=file,
-                        file_name="flower.png",
+                        file_name="flower.pdf",
                         mime="application/octet-stream"
                     )
 
