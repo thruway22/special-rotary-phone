@@ -95,9 +95,6 @@ if submitted:
             sheet_name = '{}'.format(str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
             ws.title = sheet_name
 
-            #output = BytesIO()
-            #wb.save(output)
-
             with NamedTemporaryFile() as tmp:
                 wb.save(tmp.name)
                 output_tmp = BytesIO(tmp.read())
@@ -108,18 +105,15 @@ if submitted:
             output_file_name = 'TS-{}-{}'.format(
                 employee_id, str(calendar.month_abbr[date_start.month].upper()) + str(date_start.year))
 
-            file_name = 'Timesheet-{}'.format(employee_id)
             st.download_button(
-                label='Download Excel File',
+                label='Download EXCEL File',
                 data=output_tmp.getvalue(),
                 file_name=output_file_name,
                 #mime="application/vnd.ms-excel"
                 mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             )
-            #if pdf == pdf_options[1]:
-            st.stop()
-            convertapi.api_secret = st.secrets['api_secret']
 
+            convertapi.api_secret = st.secrets['api_secret']
             content = output_tmp.getvalue()
             upload_io = convertapi.UploadIO(content, 'ts.xlsx')
             result = convertapi.convert('pdf', {
@@ -128,7 +122,7 @@ if submitted:
 
             with open(saved_file, "rb") as file:
                 btn = st.download_button(
-                        label="Download image",
+                        label="Download PDF File",
                         data=file,
                         file_name="flower.pdf",
                         mime="application/octet-stream"
